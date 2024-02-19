@@ -7,13 +7,6 @@
   
     "icons": {
       "48": ""
-    },
-  
-    "content_scripts": [
-      {
-        "matches": [""],
-        "js": [""]
-      }
-    ]
+    }
   }
   
