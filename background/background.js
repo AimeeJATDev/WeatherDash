@@ -17,8 +17,23 @@ async function fetchUrl() {
     }
 }
 
+async function loadHTML() {
+    try {
+        const response = await fetch('../dashboard/dashboard.html');
 
+        if (!response.ok) {
+            throw new Error("Couldn't load HTML page");
+        }
 
+        document.body.innerHTML = response.text();
+    }
+
+    catch(error) {
+        console.log(error);
+    }
+}
+
+loadHTML();
 
 function datetime() {
     const date = new Date();
