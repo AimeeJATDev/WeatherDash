@@ -9,26 +9,16 @@
     </head>
     <body>
         <main>
-            <div id="current-time-date-div">
-                <h2>Time</h2>
-                <h2>Date</h2>
-            </div>
-            
-            <div id="main-forecast-div">
-                <img>
-                <p>Temperature</p>
-                <button>ºC</button>
-                <button>ºF</button>
-                <input type="search" placeholder="Location">
+            <section id="top-section">
+                <input name="location" placeholder="Location">
+                <div id="main-forecast-div"></div>
+                <div id="map-div"></div>
+            </section>
 
-            </div>
-
-            <div id="weekly-forecast-div">
-                <table>
-                    <thead></thead>
-                    <tbody></tbody>
-                </table>
-            </div>
+            <section id="bottom-section">
+                <div id="hourly-forecast-div"></div>
+                <div id="weekly-forecast-div"></div>
+            </section>
         </main>
     </body>
 </html>
