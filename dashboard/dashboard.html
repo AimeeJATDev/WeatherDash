@@ -5,7 +5,9 @@
         <title>WeatherDash</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="dashboard.css">
-        <link href='https://cdn.maptiler.com/maptiler-sdk-js/v1.2.0/maptiler-sdk.css' rel='stylesheet' />
+        <!--<script src="dashboard.js"></script>-->
+        <script src="https://cdn.maptiler.com/maptiler-sdk-js/v1.2.0/maptiler-sdk.umd.min.js"></script>
+        <link href="https://cdn.maptiler.com/maptiler-sdk-js/v1.2.0/maptiler-sdk.css" rel="stylesheet" />
     </head>
     <body>
         <main>
@@ -15,9 +17,16 @@
                     <h2>Temperature</h2>
                     <h2>Forecast</h2>
                 </div>
-                <div id="map-div">
-
-                </div>
+                <div id="map-div"></div>
+                <script>
+                    maptilersdk.config.apiKey = 'gm2EYqR1nDRlUcaiw7nu';
+                    const map = new maptilersdk.Map({
+                      container: 'map-div', // container's id or the HTML element to render the map
+                      style: "backdrop",
+                      center: [16.62662018, 49.2125578], // starting position [lng, lat]
+                      zoom: 14, // starting zoom
+                    });
+                </script>
             </section>
 
             <section id="bottom-section">
@@ -29,6 +38,6 @@
                 </div>
             </section>
         </main>
-        <script src="dashboard.js"></script>
+        
     </body>
 </html>
