@@ -1,7 +1,24 @@
 
+#top-section {
+
+}
+
+#input-div {
+    margin-bottom: 20px;
+}
+
+#main-forecast-div {
+    display: inline-block;
+    width: 58%;
+    height: 400px;
+    vertical-align: top;
+    border: 1px solid red;
+}
+
 #map-div {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100%;
+    display: inline-block;
+    width: 40%;
+    height: 400px;
+    margin-left: 20px;
+    border: 1px solid red;
 }

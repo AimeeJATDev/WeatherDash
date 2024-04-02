@@ -5,14 +5,16 @@
         <title>WeatherDash</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="dashboard.css">
-        <!--<script src="dashboard.js"></script>-->
+        <script src="dashboard.js"></script>
         <script src="https://cdn.maptiler.com/maptiler-sdk-js/v1.2.0/maptiler-sdk.umd.min.js"></script>
         <link href="https://cdn.maptiler.com/maptiler-sdk-js/v1.2.0/maptiler-sdk.css" rel="stylesheet" />
     </head>
     <body>
         <main>
             <section id="top-section">
-                <input name="location" placeholder="Location">
+                <div id="input-div">
+                    <input name="location" placeholder="Location">
+                </div>
                 <div id="main-forecast-div">
                     <h2>Temperature</h2>
                     <h2>Forecast</h2>
