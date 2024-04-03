@@ -1,10 +1,14 @@
 
 #top-section {
-
+     margin-top: 20px;
 }
 
 #input-div {
     margin-bottom: 20px;
+}
+
+#input-div input{
+    width: 20%;
 }
 
 #main-forecast-div {
@@ -22,3 +26,23 @@
     margin-left: 20px;
     border: 1px solid red;
 }
+
+#bottom-section {
+    margin-top: 20px;
+}
+
+#hourly-forecast-div {
+    display: inline-block;
+    width: 48%;
+    text-align: center;
+    border: 1px solid red;
+}
+
+#weekly-forecast-div {
+    display: inline-block;
+    width: 48%;
+    margin-left: 58px;
+    text-align: center;
+    border: 1px solid red;
+}
+
