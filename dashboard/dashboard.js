@@ -7,9 +7,10 @@ async function fetchUrl() {
         if (!response.ok) {
             throw new Error("Issue with network response")
         }
-        
-        const data =  await response.json();
-        console.log(data.timezone);
+
+        const data = await response.json()
+
+        return data;
 
     }
 
@@ -18,4 +19,10 @@ async function fetchUrl() {
     }
 }
 
-fetchUrl()
+async function getWeatherData() {
+    const data = fetchUrl()
+    console.log(data);
+}
+
+getWeatherData();
+
