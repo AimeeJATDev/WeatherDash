@@ -10,6 +10,7 @@ async function fetchUrl() {
 
         const data = await response.json()
 
+        console.log(data.timezone)
         return data;
 
     }
@@ -20,8 +21,16 @@ async function fetchUrl() {
 }
 
 async function getWeatherData() {
-    const data = fetchUrl()
+    const response = await fetch(weatherApiUrl);
+
+    if (!response.ok) {
+        console.log("Issue with network response");
+    }
+
+    const data = await response.json()
     console.log(data);
+
+    document.getElementById("temperature").innerHTML = data.timezone;
 }
 
 getWeatherData();
