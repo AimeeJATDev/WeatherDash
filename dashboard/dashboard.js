@@ -1,6 +1,8 @@
-const weatherApiUrl = "https://api.open-meteo.com/v1/forecast?latitude=49.4585&longitude=-2.5787&hourly=temperature_2m";
+const weatherApiUrl = "https://api.open-meteo.com/v1/forecast?";
 
 async function fetchUrl() {
+
+
     try {
         const response = await fetch(weatherApiUrl, {
             method: 'GET',
@@ -15,7 +17,7 @@ async function fetchUrl() {
 
         const data = await response.json()
 
-        console.log(data.latitude)
+        console.log(url)
         return data;
 
     }
@@ -26,34 +28,16 @@ async function fetchUrl() {
 }
 
 async function getWeatherData() {
-    /*const response = await fetch(weatherApiUrl);
-
-    if (!response.ok) {
-        console.log("Issue with network response");
-    }
-
-    const data = await response.json()
-    console.log(data);
-
-    document.getElementById("temperature").innerHTML = data.timezone;*/
-
     try {
-        const response = await fetch ("https://api.open-meteo.com/v1/forecast?latitude=49.4585&longitude=-2.5787&hourly=temperature_2m", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                latitude: ["54.7584"],
-                longitude: ["-2.6953"],
-                hourly: ["temperature_2m"],
-                ensemble: false
-            })
-        });
+        const response = await fetch (weatherApiUrl + new URLSearchParams({
+            "latitude": 52.52,
+            "longitude": 13.48,
+            "current": ["temperature_2m", "weather_code"]
+        }))
 
-        /*if (!response.ok) {
+        if (!response.ok) {
             throw new Error("Issue with network response")
-        }*/
+        }
 
         const data = await response.json()
 
@@ -65,6 +49,6 @@ async function getWeatherData() {
     }
 }
 
-fetchUrl();
+/*fetchUrl();*/
 getWeatherData();
 
