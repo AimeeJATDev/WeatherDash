@@ -13,10 +13,11 @@
         <main>
             <section id="top-section">
                 <div id="input-div">
-                    <form> 
+                    <form onsubmit="return getWeatherData()"> 
                         <input name="location" placeholder="Location">
-                        <button type="submit" onsubmit="getWeatherData()">Submit</button>
+                        <button type="submit">Submit</button>
                     </form>
+                    
                 </div>
                 <div id="main-forecast-div">
                     <h2 id="temperature">Temperature</h2>

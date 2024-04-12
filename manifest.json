@@ -14,6 +14,9 @@
       "scripts": ["background/background.js"],
       "persistent": true,
       "type": "module"
-    }
+    },
+
+    "permissions": ["<all_urls>"]
+
   }
   
