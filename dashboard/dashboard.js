@@ -22,4 +22,10 @@ async function getWeatherData() {
     }
 }
 
-getWeatherData();
+let locationForm = document.getElementById("location-form");
+
+locationForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    getWeatherData();
+
+});
