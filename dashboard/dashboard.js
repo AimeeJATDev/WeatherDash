@@ -1,10 +1,10 @@
 
-async function getWeatherData(values) {
+async function getWeatherData(latitude, longitude) {
     const weatherApiUrl = "https://api.open-meteo.com/v1/forecast?";
     try {
         const response = await fetch (weatherApiUrl + new URLSearchParams({
-            "latitude": values[0],
-            "longitude": values[1],
+            "latitude": latitude,
+            "longitude": longitude,
             "current": ["temperature_2m", "weather_code"]
         }))
 
@@ -32,15 +32,11 @@ async function findLocation(location) {
             "format": "json"
         }));
 
-        /*if (!response.ok) {
+        if (!response.ok) {
             throw new Error("Issue with network response");
-        }*/
+        }
 
         const data = await response.json();
-
-        console.log(data[0].lat);
-        console.log(data[0].lon);
-
 
         let latitude = data[0].lat;
         let longitude = data[0].lon;
@@ -60,8 +56,8 @@ let locationForm = document.getElementById("location-form");
 locationForm.addEventListener("submit", (e) => {
     e.preventDefault();
     let inputField = document.getElementById("location-field").value;
-    
-    findLocation(inputField)
-    getWeatherData();
 
+    findLocation(inputField).then(data => {
+        getWeatherData(data[0], data[1]);
+    })
 });
