@@ -1,26 +1,4 @@
-
-async function getWeatherData(latitude, longitude) {
-    const weatherApiUrl = "https://api.open-meteo.com/v1/forecast?";
-    try {
-        const response = await fetch (weatherApiUrl + new URLSearchParams({
-            "latitude": latitude,
-            "longitude": longitude,
-            "current": ["temperature_2m", "weather_code"]
-        }))
-
-        if (!response.ok) {
-            throw new Error("Issue with network response")
-        }
-
-        const data = await response.json()
-
-        console.log(data)
-        return data;
-    }
-    catch(error) {
-        console.log(error)
-    }
-}
+const weatherApiUrl = "https://api.open-meteo.com/v1/forecast?";
 
 async function findLocation(location) {
     const geocodingApiUrl = "https://us1.locationiq.com/v1/search?";
@@ -51,6 +29,76 @@ async function findLocation(location) {
     }
 }
 
+async function getCurrentWeatherData(latitude, longitude) {
+    try {
+        const response = await fetch (weatherApiUrl + new URLSearchParams({
+            "latitude": latitude,
+            "longitude": longitude,
+            "current": ["temperature_2m", "weather_code"]
+        }))
+
+        if (!response.ok) {
+            throw new Error("Issue with network response")
+        }
+
+        const data = await response.json()
+
+        console.log(data)
+        return data;
+    }
+    catch(error) {
+        console.log(error)
+    }
+}
+
+async function getHourlyWeatherData(latitude, longitude) {
+    try {
+        const response = await fetch(weatherApiUrl + new URLSearchParams({
+            "latitude": latitude,
+            "longitude": longitude,
+            "hourly": ["temperature_2m", "weather_code"],
+            "forecast_days": 1
+        }))
+
+        if (!response.ok) {
+            throw new Error("Issue with network response")
+        }
+
+        const data = await response.json()
+
+        console.log(data)
+        return data;
+        
+    }
+    catch(error) {
+        console.log(error)
+    }
+}
+
+async function getWeeklyWeatherData(latitude, longitude) {
+    try {
+        const response = await fetch(weatherApiUrl + new URLSearchParams({
+            "latitude": latitude,
+            "longitude": longitude,
+            "daily": ["temperature_2m_max", "weather_code"],
+            "forecast_days": 7
+        }))
+
+        if (!response.ok) {
+            throw new Error("Issue with network response")
+        }
+
+        const data = await response.json()
+
+        console.log(data)
+        return data;
+        
+    }
+    catch(error) {
+        console.log(error)
+    }
+}
+
 let locationForm = document.getElementById("location-form");
 
 locationForm.addEventListener("submit", (e) => {
@@ -58,6 +106,8 @@ locationForm.addEventListener("submit", (e) => {
     let inputField = document.getElementById("location-field").value;
 
     findLocation(inputField).then(data => {
-        getWeatherData(data[0], data[1]);
+        getCurrentWeatherData(data[0], data[1]);
+        getHourlyWeatherData(data[0], data[1]);
+        getWeeklyWeatherData(data[0], data[1]);
     })
 });
