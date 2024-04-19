@@ -88,9 +88,9 @@ async function getWeeklyWeatherData(latitude, longitude) {
             throw new Error("Issue with network response")
         }
 
-        const data = await response.json()
+        const data = await response.json();
 
-        console.log(data)
+        console.log(data);
         return data;
         
     }
@@ -100,6 +100,34 @@ async function getWeeklyWeatherData(latitude, longitude) {
 }
 
 let locationForm = document.getElementById("location-form");
+
+async function autocomplete(input) {
+    const autocompleteApiURL = "https://us1.locationiq.com/v1/autocomplete?"
+    const apiKey = "pk.94745bb3fc90ed960d50ca389a48961c"
+
+    try {
+        const response = await fetch(autocompleteApiURL, new URLSearchParams({
+            "key":apiKey,
+            "q": input
+        }));
+
+        const data = await response.json();
+        console.log(data);
+        return data;
+    }
+    catch(error) {
+        console.log(error)
+    }
+}
+
+
+locationForm.addEventListener("keyup", (e) => {
+    e.preventDefault()
+    let inputField = document.getElementById("location-field").value;
+    autocomplete(inputField);
+    
+
+})
 
 locationForm.addEventListener("submit", (e) => {
     e.preventDefault();
