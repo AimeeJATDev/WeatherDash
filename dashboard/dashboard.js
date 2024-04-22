@@ -1,5 +1,6 @@
 const weatherApiUrl = "https://api.open-meteo.com/v1/forecast?";
 
+
 async function findLocation(location) {
     const geocodingApiUrl = "https://us1.locationiq.com/v1/search?";
     const apiKey = "pk.94745bb3fc90ed960d50ca389a48961c"
@@ -102,18 +103,26 @@ async function getWeeklyWeatherData(latitude, longitude) {
 let locationForm = document.getElementById("location-form");
 
 async function autocomplete(input) {
-    const autocompleteApiURL = "https://us1.locationiq.com/v1/autocomplete?"
+    const geocodingApiUrl = "https://us1.locationiq.com/v1/search?key=pk.94745bb3fc90ed960d50ca389a48961c&country=" + input + "&format=json"
     const apiKey = "pk.94745bb3fc90ed960d50ca389a48961c"
 
     try {
-        const response = await fetch(autocompleteApiURL, new URLSearchParams({
-            "key":apiKey,
-            "q": input
-        }));
+        const response = await fetch(geocodingApiUrl)
+            /*, new URLSearchParams({
+            "key": apiKey,
+            "country": input,
+            "format": "json"
+        }));*/
 
         const data = await response.json();
-        console.log(data);
-        return data;
+        let places = []
+
+        for (let i = 0; i < data.length; i++) {
+            places.push(data[i].display_name)
+        }
+
+        console.log(places)
+        return places;
     }
     catch(error) {
         console.log(error)
@@ -124,9 +133,14 @@ async function autocomplete(input) {
 locationForm.addEventListener("keyup", (e) => {
     e.preventDefault()
     let inputField = document.getElementById("location-field").value;
-    autocomplete(inputField);
-    
-
+    autocomplete(inputField).then(data => {
+        var list = document.getElementById("location-list")
+        data.forEach(function(item) {
+            var option = document.createElement('option');
+            option.value = item;
+            list.appendChild(option);
+        })
+    });
 })
 
 locationForm.addEventListener("submit", (e) => {
