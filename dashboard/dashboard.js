@@ -1,12 +1,12 @@
 const weatherApiUrl = "https://api.open-meteo.com/v1/forecast?";
 const geocodingApiUrl = "https://us1.locationiq.com/v1/search?";
-const apiKey = "pk.94745bb3fc90ed960d50ca389a48961c"
+const geoApiKey = "pk.94745bb3fc90ed960d50ca389a48961c"
 
 async function findLocation(location) {
     
     try {
         const response = await fetch(geocodingApiUrl + new URLSearchParams({
-            "key": apiKey,
+            "key": geoApiKey,
             "country": location,
             "format": "json"
         }));
@@ -44,7 +44,6 @@ async function getCurrentWeatherData(latitude, longitude) {
 
         const data = await response.json()
 
-        console.log(data)
         return data;
     }
     catch(error) {
@@ -67,7 +66,6 @@ async function getHourlyWeatherData(latitude, longitude) {
 
         const data = await response.json()
 
-        console.log(data)
         return data;
         
     }
@@ -91,7 +89,6 @@ async function getWeeklyWeatherData(latitude, longitude) {
 
         const data = await response.json();
 
-        console.log(data);
         return data;
         
     }
@@ -103,10 +100,9 @@ async function getWeeklyWeatherData(latitude, longitude) {
 let locationForm = document.getElementById("location-form");
 
 async function autocomplete(input) {
-
     try {
         const response = await fetch(geocodingApiUrl + new URLSearchParams({
-            "key": apiKey,
+            "key": geoApiKey,
             "country": input,
             "format": "json"
         }));
@@ -122,7 +118,6 @@ async function autocomplete(input) {
             places.push(data[i].display_name)
         }
 
-        console.log(places)
         return places;
     }
     catch(error) {
@@ -149,8 +144,15 @@ locationForm.addEventListener("submit", (e) => {
     let inputField = document.getElementById("location-field").value;
 
     findLocation(inputField).then(data => {
-        getCurrentWeatherData(data[0], data[1]);
-        getHourlyWeatherData(data[0], data[1]);
-        getWeeklyWeatherData(data[0], data[1]);
+        getCurrentWeatherData(data[0], data[1]).then(current => {
+            console.log(current)
+            document.getElementById("temperature").innerHTML = current.current.temperature_2m;
+        });
+        getHourlyWeatherData(data[0], data[1]).then(hourly => {
+            console.log(hourly)
+        });
+        getWeeklyWeatherData(data[0], data[1]).then(weekly => {
+            console.log(weekly)
+        });
     })
 });
