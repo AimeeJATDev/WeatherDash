@@ -1,9 +1,9 @@
 const weatherApiUrl = "https://api.open-meteo.com/v1/forecast?";
-
+const geocodingApiUrl = "https://us1.locationiq.com/v1/search?";
+const apiKey = "pk.94745bb3fc90ed960d50ca389a48961c"
 
 async function findLocation(location) {
-    const geocodingApiUrl = "https://us1.locationiq.com/v1/search?";
-    const apiKey = "pk.94745bb3fc90ed960d50ca389a48961c"
+    
     try {
         const response = await fetch(geocodingApiUrl + new URLSearchParams({
             "key": apiKey,
@@ -103,16 +103,17 @@ async function getWeeklyWeatherData(latitude, longitude) {
 let locationForm = document.getElementById("location-form");
 
 async function autocomplete(input) {
-    const geocodingApiUrl = "https://us1.locationiq.com/v1/search?key=pk.94745bb3fc90ed960d50ca389a48961c&country=" + input + "&format=json"
-    const apiKey = "pk.94745bb3fc90ed960d50ca389a48961c"
 
     try {
-        const response = await fetch(geocodingApiUrl)
-            /*, new URLSearchParams({
+        const response = await fetch(geocodingApiUrl + new URLSearchParams({
             "key": apiKey,
             "country": input,
             "format": "json"
-        }));*/
+        }));
+
+        if (!response.ok) {
+            throw new Error("Issue with network response")
+        }
 
         const data = await response.json();
         let places = []
