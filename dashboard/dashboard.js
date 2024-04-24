@@ -125,6 +125,25 @@ async function autocomplete(input) {
     }
 }
 
+function decodeWeather(weatherCode) {
+    weatherDict = {
+        "0": "Clear Sky",
+        "1": "Mainly Clear",
+        "2": "Partly Cloudy",
+        "3": "Overcast",
+        "45": "Fog",
+        "48": "Depositing Rime Fog",
+        "51": "Light Drizzle"
+    }
+
+    for (const [key, value] of Object.entries(weatherDict)) {
+        if (weatherCode == key) {
+            return value;
+        }
+    }
+
+}
+
 
 locationForm.addEventListener("keyup", (e) => {
     e.preventDefault()
@@ -146,8 +165,10 @@ locationForm.addEventListener("submit", (e) => {
     findLocation(inputField).then(data => {
         getCurrentWeatherData(data[0], data[1]).then(current => {
             console.log(current)
+            let forecast = decodeWeather(current.current.weather_code);
             document.getElementById("temperature").innerHTML = current.current.temperature_2m;
-            document.getElementById("forecast").innerHTML = current.current.weather_code;
+            document.getElementById("forecast").innerHTML = forecast;
+            
         });
         getHourlyWeatherData(data[0], data[1]).then(hourly => {
             console.log(hourly)
