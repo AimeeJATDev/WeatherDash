@@ -147,6 +147,7 @@ locationForm.addEventListener("submit", (e) => {
         getCurrentWeatherData(data[0], data[1]).then(current => {
             console.log(current)
             document.getElementById("temperature").innerHTML = current.current.temperature_2m;
+            document.getElementById("forecast").innerHTML = current.current.weather_code;
         });
         getHourlyWeatherData(data[0], data[1]).then(hourly => {
             console.log(hourly)
