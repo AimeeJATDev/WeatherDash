@@ -163,7 +163,6 @@ function decodeWeather(weatherCode) {
             return value;
         }
     }
-
 }
 
 
