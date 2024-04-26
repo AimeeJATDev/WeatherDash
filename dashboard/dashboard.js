@@ -165,6 +165,15 @@ function decodeWeather(weatherCode) {
     }
 }
 
+function chooseImage(weatherCode) {
+    let image;
+    if (weatherCode == 0) {
+        image = "images/large/icons8-sun-96.png"
+    }
+
+    return image
+}
+
 
 locationForm.addEventListener("keyup", (e) => {
     e.preventDefault()
@@ -185,11 +194,9 @@ locationForm.addEventListener("submit", (e) => {
 
     findLocation(inputField).then(data => {
         getCurrentWeatherData(data[0], data[1]).then(current => {
-            console.log(current)
-            let forecast = decodeWeather(current.current.weather_code);
             document.getElementById("temperature").innerHTML = current.current.temperature_2m;
-            document.getElementById("forecast").innerHTML = forecast;
-            
+            document.getElementById("forecast").innerHTML = decodeWeather(current.current.weather_code);
+            document.getElementById("forecast-img").src = chooseImage(0);
         });
         getHourlyWeatherData(data[0], data[1]).then(hourly => {
             console.log(hourly)
