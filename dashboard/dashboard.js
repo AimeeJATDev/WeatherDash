@@ -170,6 +170,21 @@ function chooseImage(weatherCode) {
     if (weatherCode == 0) {
         image = "images/large/icons8-sun-96.png"
     }
+    else if (weatherCode == 1 || weatherCode == 2) {
+        image = "images/large/icons8-partly-cloudy-day-96.png"
+    }
+    else if (weatherCode == 3) {
+        image = "images/large/icons8-cloud-96.png"
+    }
+    else if (weatherCode == 45 || weatherCode == 48) {
+        image = "images/large/icons8-fog-96.png"
+    }
+    else if (weatherCode == 51 || weatherCode == 53 || weatherCode == 55) {
+        image = "images/large/icons8-drizzle-96.png"
+    }
+    else if (weatherCode == 56 || weatherCode == 57) {
+        image = "image/large/icons8-sleet-96.png"
+    }
 
     return image
 }
