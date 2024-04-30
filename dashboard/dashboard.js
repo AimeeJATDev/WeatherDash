@@ -182,8 +182,17 @@ function chooseImage(weatherCode) {
     else if (weatherCode == 51 || weatherCode == 53 || weatherCode == 55) {
         image = "images/large/icons8-drizzle-96.png"
     }
-    else if (weatherCode == 56 || weatherCode == 57) {
-        image = "image/large/icons8-sleet-96.png"
+    else if (weatherCode == 56 || weatherCode == 57 || weatherCode == 66 || weatherCode == 67) {
+        image = "images/large/icons8-sleet-96.png"
+    }
+    else if (weatherCode == 61 || weatherCode == 63 || weatherCode == 65 || weatherCode == 80 || weatherCode == 81 || weatherCode == 82) {
+        image = "images/large/icons8-rain-96.png"
+    }
+    else if (weatherCode == 71 || weatherCode == 73 || weatherCode == 75 || weatherCode == 77 || weatherCode == 85 || weatherCode == 86) {
+        image = "images/large/icons8-snow-96.png"
+    }
+    else if (weatherCode == 95 || weatherCode == 96 || weatherCode == 99) {
+        image = "images/large/icons8-storm-96.png"
     }
 
     return image
@@ -211,7 +220,7 @@ locationForm.addEventListener("submit", (e) => {
         getCurrentWeatherData(data[0], data[1]).then(current => {
             document.getElementById("temperature").innerHTML = current.current.temperature_2m;
             document.getElementById("forecast").innerHTML = decodeWeather(current.current.weather_code);
-            document.getElementById("forecast-img").src = chooseImage(0);
+            document.getElementById("forecast-img").src = chooseImage(current.current.weather_code);
         });
         getHourlyWeatherData(data[0], data[1]).then(hourly => {
             console.log(hourly)
