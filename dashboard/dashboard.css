@@ -4,11 +4,24 @@
 }
 
 #input-div {
+    display: inline-block;
+    width: 50%;
     margin-bottom: 20px;
 }
 
 #input-div input{
-    width: 20%;
+    width: 40%;
+}
+
+#date-time-div {
+    display: inline-block;
+    width: 40%;
+    margin-left: 170px;
+    border: 1px solid red;
+}
+
+#date-time-div h2 {
+    display: inline;
 }
 
 #main-forecast-div {

@@ -2,6 +2,34 @@ const weatherApiUrl = "https://api.open-meteo.com/v1/forecast?";
 const geocodingApiUrl = "https://us1.locationiq.com/v1/search?";
 const geoApiKey = "pk.94745bb3fc90ed960d50ca389a48961c"
 
+function datetime() {
+    const date = new Date();
+
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+
+    let currentDate = `${day}-${month}-${year}`;
+    /*console.log(currentDate);*/
+
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    if (minutes < 10) {
+        minutes = "0" + minutes
+    }
+
+    let currentTime = `${hours}:${minutes}`;
+    /*console.log(currentTime);*/
+
+    values = [currentDate, currentTime]
+
+    return values
+}
+
+let dateTime = datetime()
+document.getElementById("current-date").innerHTML = dateTime[0]
+document.getElementById("current-time").innerHTML = dateTime[1]
+
 async function findLocation(location) {
     
     try {
@@ -198,30 +226,6 @@ function chooseImage(weatherCode) {
     return image
 }
 
-function datetime() {
-    const date = new Date();
-
-    let day = date.getDate();
-    let month = date.getMonth() + 1;
-    let year = date.getFullYear();
-
-    let currentDate = `${day}-${month}-${year}`;
-    /*console.log(currentDate);*/
-
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
-    if (minutes < 10) {
-        minutes = "0" + minutes
-    }
-
-    let currentTime = `${hours}:${minutes}`;
-    /*console.log(currentTime);*/
-
-    values = [currentDate, currentTime]
-
-    return values
-}
-
 locationForm.addEventListener("keyup", (e) => {
     e.preventDefault()
     let inputField = document.getElementById("location-field").value;
@@ -241,12 +245,10 @@ locationForm.addEventListener("submit", (e) => {
 
     findLocation(inputField).then(data => {
         getCurrentWeatherData(data[0], data[1]).then(current => {
-            document.getElementById("temperature").innerHTML = current.current.temperature_2m;
+            document.getElementById("temperature").innerHTML = current.current.temperature_2m + current.current_units.temperature_2m;
             document.getElementById("forecast").innerHTML = decodeWeather(current.current.weather_code);
             document.getElementById("forecast-img").src = chooseImage(current.current.weather_code);
-            let dateTime = datetime()
-            document.getElementById("date").innerHTML = dateTime[0]
-            document.getElementById("time").innerHTML = dateTime[1]
+            console.log(current)
         });
         getHourlyWeatherData(data[0], data[1]).then(hourly => {
             console.log(hourly)
