@@ -10,7 +10,6 @@ function datetime() {
     let year = date.getFullYear();
 
     let currentDate = `${day}-${month}-${year}`;
-    /*console.log(currentDate);*/
 
     let hours = date.getHours();
     let minutes = date.getMinutes();
@@ -19,16 +18,23 @@ function datetime() {
     }
 
     let currentTime = `${hours}:${minutes}`;
-    /*console.log(currentTime);*/
 
     values = [currentDate, currentTime]
 
     return values
 }
 
-let dateTime = datetime()
-document.getElementById("current-date").innerHTML = dateTime[0]
-document.getElementById("current-time").innerHTML = dateTime[1]
+function updateTime() {
+    let dateTime = datetime()
+    document.getElementById("current-date").innerHTML = dateTime[0]
+    document.getElementById("current-time").innerHTML = dateTime[1]
+    /*console.log(dateTime)*/
+    setInterval(updateTime, 60000)
+}
+
+updateTime()
+
+
 
 async function findLocation(location) {
     

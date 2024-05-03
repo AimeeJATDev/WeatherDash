@@ -16,12 +16,14 @@
 #date-time-div {
     display: inline-block;
     width: 40%;
-    margin-left: 170px;
+    margin-left: 175px;
+    text-align: end;
     border: 1px solid red;
 }
 
 #date-time-div h2 {
     display: inline;
+    margin-left: 20px
 }
 
 #main-forecast-div {
