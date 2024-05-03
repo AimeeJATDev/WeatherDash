@@ -34,8 +34,6 @@ function updateTime() {
 
 updateTime()
 
-
-
 async function findLocation(location) {
     
     try {
@@ -258,6 +256,13 @@ locationForm.addEventListener("submit", (e) => {
         });
         getHourlyWeatherData(data[0], data[1]).then(hourly => {
             console.log(hourly)
+            let date = hourly.hourly.time
+            let row = document.getElementById("hourly-row");
+            date.forEach(function(item) {
+                var heading = document.createElement('td');
+                heading.value = item;
+                row.appendChild(heading);
+            })
         });
         getWeeklyWeatherData(data[0], data[1]).then(weekly => {
             console.log(weekly)
