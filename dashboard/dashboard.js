@@ -260,7 +260,8 @@ locationForm.addEventListener("submit", (e) => {
             let row = document.getElementById("hourly-row");
             date.forEach(function(item) {
                 var heading = document.createElement('td');
-                heading.value = item;
+                var index = item.indexOf("T") + 1
+                heading.innerText = item.slice(index);
                 row.appendChild(heading);
             })
         });
