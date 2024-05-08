@@ -258,11 +258,15 @@ locationForm.addEventListener("submit", (e) => {
             console.log(hourly)
             let date = hourly.hourly.time
             let row = document.getElementById("hourly-row");
+            let currentTime = datetime()
             date.forEach(function(item) {
                 var heading = document.createElement('td');
                 var index = item.indexOf("T") + 1
-                heading.innerText = item.slice(index);
-                row.appendChild(heading);
+                var hour = item.slice(index)
+                if (hour > currentTime[1] ) {
+                    heading.innerText = hour;
+                    row.appendChild(heading);
+                }
             })
         });
         getWeeklyWeatherData(data[0], data[1]).then(weekly => {
