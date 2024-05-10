@@ -255,19 +255,34 @@ locationForm.addEventListener("submit", (e) => {
             console.log(current)
         });
         getHourlyWeatherData(data[0], data[1]).then(hourly => {
-            console.log(hourly)
-            let date = hourly.hourly.time
-            let row = document.getElementById("hourly-row");
-            let currentTime = datetime()
+            console.log(hourly);
+            let currentTime = datetime();
+            let date = hourly.hourly.time;
+            let headRow = document.getElementById("hourly-heading");
+            let temp = hourly.hourly.temperature_2m;
+            let forecast = hourly.hourly.weather_code;
+            let forecastRow = document.getElementById("hourly-forecast");
+            let tempRow = document.getElementById("hourly-temp")
+            
             date.forEach(function(item) {
-                var heading = document.createElement('td');
+                var td = document.createElement('td');
                 var index = item.indexOf("T") + 1
                 var hour = item.slice(index)
                 if (hour > currentTime[1] ) {
-                    heading.innerText = hour;
-                    row.appendChild(heading);
+                    td.innerText = hour;
+                    headRow.appendChild(td);
                 }
+            });
+
+            forecast.forEach(function(item) {
+                var td = document.createElement('td');
+                
             })
+
+            temp.forEach(function(item) {
+
+            })
+
         });
         getWeeklyWeatherData(data[0], data[1]).then(weekly => {
             console.log(weekly)
