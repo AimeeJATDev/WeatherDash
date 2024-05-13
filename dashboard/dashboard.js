@@ -263,25 +263,41 @@ locationForm.addEventListener("submit", (e) => {
             let forecast = hourly.hourly.weather_code;
             let forecastRow = document.getElementById("hourly-forecast");
             let tempRow = document.getElementById("hourly-temp")
-            
-            date.forEach(function(item) {
+            let tempValue = hourly.hourly_units.temperature_2m;
+
+            let hourIndex = []
+
+            for (let i = 0; i < date.length; i++) {
                 var td = document.createElement('td');
-                var index = item.indexOf("T") + 1
-                var hour = item.slice(index)
+                var index = date[i].indexOf("T") + 1
+                var hour = date[i].slice(index)
                 if (hour > currentTime[1] ) {
                     td.innerText = hour;
                     headRow.appendChild(td);
+                    hourIndex.push(i)
                 }
-            });
+            }
 
-            forecast.forEach(function(item) {
+
+            for (let j = 0; j < forecast.length; j++) {
                 var td = document.createElement('td');
-                
-            })
+                var forecastImage = chooseImage(forecast[j]);
+                if (j >= hourIndex[0]) {
+                    var image = document.createElement("img")
+                    /*image.src = forecastImage*/
+                    td.innerText = forecast[j];
+                    forecastRow.appendChild(td);
+                    /*forecastRow.appendChild(image)*/
+                }  
+            }
 
-            temp.forEach(function(item) {
-
-            })
+            for (let k = 0; k < temp.length; k++) {
+                var td = document.createElement('td');
+                if (k >= hourIndex[0]) {
+                    td.innerText = temp[k] + tempValue;
+                    tempRow.appendChild(td)
+                }
+            }
 
         });
         getWeeklyWeatherData(data[0], data[1]).then(weekly => {
