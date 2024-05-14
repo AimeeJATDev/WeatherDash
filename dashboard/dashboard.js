@@ -200,14 +200,22 @@ function decodeWeather(weatherCode) {
 function chooseImage(weatherCode, size) {
     let image;
     if (weatherCode == 0) {
-        image = "images/large/icons8-sun-96.png"
+        if (size == "small") {
+            image = "images/small/icons8-sun-24.png"
+        }
+        else if (size == "medium") {
+            image = "images/medium/icons8-sun-48.png"
+        }
+        else if (size == "large") {
+            image = "images/large/icons8-sun-96.png"
+        }
     }
     else if (weatherCode == 1 || weatherCode == 2) {
         if (size == "small") {
-            image = "images/large/icons8-partly-cloudy-day-24.png"
+            image = "images/small/icons8-partly-cloudy-day-24.png"
         }
         else if (size == "medium") {
-            image = "images/large/icons8-partly-cloudy-day-48.png"
+            image = "images/medium/icons8-partly-cloudy-day-48.png"
         }
         else if (size == "large") {
             image = "images/large/icons8-partly-cloudy-day-96.png"
@@ -215,10 +223,10 @@ function chooseImage(weatherCode, size) {
     }
     else if (weatherCode == 3) {
         if (size == "small") {
-            image = "images/large/icons8-cloud-24.png"
+            image = "images/small/icons8-cloud-24.png"
         }
         else if (size == "medium") {
-            image = "images/large/icons8-cloud-48.png"
+            image = "images/medium/icons8-cloud-48.png"
         }
         else if (size == "large") {
             image = "images/large/icons8-cloud-96.png"
@@ -226,10 +234,10 @@ function chooseImage(weatherCode, size) {
     }
     else if (weatherCode == 45 || weatherCode == 48) {
         if (size == "small") {
-            image = "images/large/icons8-fog-24.png"
+            image = "images/small/icons8-fog-24.png"
         }
         else if (size == "medium") {
-            image = "images/large/icons8-fog-48.png"
+            image = "images/medium/icons8-fog-48.png"
         }
         else if (size == "large") {
             image = "images/large/icons8-fog-96.png"
@@ -237,10 +245,10 @@ function chooseImage(weatherCode, size) {
     }
     else if (weatherCode == 51 || weatherCode == 53 || weatherCode == 55) {
         if (size == "small") {
-            image = "images/large/icons8-drizzle-24.png"
+            image = "images/small/icons8-drizzle-24.png"
         }
         else if (size == "medium") {
-            image = "images/large/icons8-drizzle-48.png"
+            image = "images/medium/icons8-drizzle-48.png"
         }
         else if (size == "large") {
             image = "images/large/icons8-drizzle-96.png"
@@ -248,10 +256,10 @@ function chooseImage(weatherCode, size) {
     }
     else if (weatherCode == 56 || weatherCode == 57 || weatherCode == 66 || weatherCode == 67) {
         if (size == "small") {
-            image = "images/large/icons8-sleet-24.png"
+            image = "images/small/icons8-sleet-24.png"
         }
         else if (size == "medium") {
-            image = "images/large/icons8-sleet-48.png"
+            image = "images/medium/icons8-sleet-48.png"
         }
         else if (size == "large") {
             image = "images/large/icons8-sleet-96.png"
@@ -259,10 +267,10 @@ function chooseImage(weatherCode, size) {
     }
     else if (weatherCode == 61 || weatherCode == 63 || weatherCode == 65 || weatherCode == 80 || weatherCode == 81 || weatherCode == 82) {
         if (size == "small") {
-            image = "images/large/icons8-rain-24.png"
+            image = "images/small/icons8-rain-24.png"
         }
         else if (size == "medium") {
-            image = "images/large/icons8-rain-48.png"
+            image = "images/medium/icons8-rain-48.png"
         }
         else if (size == "large") {
             image = "images/large/icons8-rain-96.png"
@@ -270,10 +278,10 @@ function chooseImage(weatherCode, size) {
     }
     else if (weatherCode == 71 || weatherCode == 73 || weatherCode == 75 || weatherCode == 77 || weatherCode == 85 || weatherCode == 86) {
         if (size == "small") {
-            image = "images/large/icons8-snow-24.png"
+            image = "images/small/icons8-snow-24.png"
         }
         else if (size == "medium") {
-            image = "images/large/icons8-snow-48.png"
+            image = "images/medium/icons8-snow-48.png"
         }
         else if (size == "large") {
             image = "images/large/icons8-snow-96.png"
@@ -281,10 +289,10 @@ function chooseImage(weatherCode, size) {
     }
     else if (weatherCode == 95 || weatherCode == 96 || weatherCode == 99) {
         if (size == "small") {
-            image = "images/large/icons8-storm-24.png"
+            image = "images/small/icons8-storm-24.png"
         }
         else if (size == "medium") {
-            image = "images/large/icons8-storm-48.png"
+            image = "images/medium/icons8-storm-48.png"
         }
         else if (size == "large") {
             image = "images/large/icons8-storm-96.png"
@@ -345,13 +353,12 @@ locationForm.addEventListener("submit", (e) => {
 
             for (let j = 0; j < forecast.length; j++) {
                 var td = document.createElement('td');
-                var forecastImage = chooseImage(forecast[j]);
+                var image = document.createElement("img");
+                var forecastImage = chooseImage(forecast[j], "small");
                 if (j >= hourIndex[0]) {
-                    var image = document.createElement("img")
-                    /*image.src = forecastImage*/
-                    td.innerText = forecast[j];
+                    image.src = forecastImage
                     forecastRow.appendChild(td);
-                    /*forecastRow.appendChild(image)*/
+                    td.appendChild(image)
                 }  
             }
 
