@@ -373,6 +373,15 @@ locationForm.addEventListener("submit", (e) => {
         });
         getWeeklyWeatherData(data[0], data[1]).then(weekly => {
             console.log(weekly)
+            let date = weekly.daily.time;
+            let headRow = document.getElementById("weekly-heading");
+
+            for (let i = 0; i < date.length; i++) {
+                var td = document.createElement('td');
+                td.innerText = date[i];
+                headRow.appendChild(td);
+                console.log(date[i])
+            }
         });
     })
 });
