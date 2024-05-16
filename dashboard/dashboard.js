@@ -353,7 +353,7 @@ locationForm.addEventListener("submit", (e) => {
 
             for (let j = 0; j < forecast.length; j++) {
                 var td = document.createElement('td');
-                var image = document.createElement("img");
+                var image = document.createElement('img');
                 var forecastImage = chooseImage(forecast[j], "small");
                 if (j >= hourIndex[0]) {
                     image.src = forecastImage
@@ -389,8 +389,11 @@ locationForm.addEventListener("submit", (e) => {
 
             for (let j = 0; j < forecast.length; j++) {
                 var td = document.createElement('td');
-                td.innerText = forecast[j];
+                var image = document.createElement('img')
+                var forecastImage = chooseImage(forecast[j], "medium")
+                image.src = forecastImage;
                 forecastRow.appendChild(td);
+                td.appendChild(image);
             }
 
             for (let k = 0; k < temp.length; k++) {
