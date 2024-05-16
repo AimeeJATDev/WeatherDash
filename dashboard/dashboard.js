@@ -375,12 +375,28 @@ locationForm.addEventListener("submit", (e) => {
             console.log(weekly)
             let date = weekly.daily.time;
             let headRow = document.getElementById("weekly-heading");
+            let forecast = weekly.daily.weather_code;
+            let forecastRow = document.getElementById("weekly-forecast")
+            let temp = weekly.daily.temperature_2m_max;
+            let tempRow = document.getElementById("weekly-temp");
+            let tempValue = weekly.daily_units.temperature_2m_max
 
             for (let i = 0; i < date.length; i++) {
                 var td = document.createElement('td');
                 td.innerText = date[i];
                 headRow.appendChild(td);
-                console.log(date[i])
+            }
+
+            for (let j = 0; j < forecast.length; j++) {
+                var td = document.createElement('td');
+                td.innerText = forecast[j];
+                forecastRow.appendChild(td);
+            }
+
+            for (let k = 0; k < temp.length; k++) {
+                var td = document.createElement('td');
+                td.innerText = temp[k] + tempValue;
+                tempRow.appendChild(td);
             }
         });
     })
