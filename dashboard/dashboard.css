@@ -6,11 +6,22 @@
 #input-div {
     display: inline-block;
     width: 50%;
+    margin-left: 10px;
     margin-bottom: 20px;
 }
 
-#input-div input{
+#input-div input {
+    display: inline-block;
     width: 40%;
+}
+
+#input-div button {
+    margin-left: 10px;
+}
+
+#location-form {
+    display: flex;
+    align-items: center;
 }
 
 #date-time-div {
