@@ -28,7 +28,6 @@ function updateTime() {
     let dateTime = datetime()
     document.getElementById("current-date").innerHTML = dateTime[0]
     document.getElementById("current-time").innerHTML = dateTime[1]
-    /*console.log(dateTime)*/
     setInterval(updateTime, 60000)
 }
 
@@ -374,6 +373,9 @@ locationForm.addEventListener("submit", (e) => {
         getWeeklyWeatherData(data[0], data[1]).then(weekly => {
             console.log(weekly)
             let date = weekly.daily.time;
+            let dd = 0 ;
+            let mm = 0 ;
+            
             let headRow = document.getElementById("weekly-heading");
             let forecast = weekly.daily.weather_code;
             let forecastRow = document.getElementById("weekly-forecast")
@@ -382,8 +384,11 @@ locationForm.addEventListener("submit", (e) => {
             let tempValue = weekly.daily_units.temperature_2m_max
 
             for (let i = 0; i < date.length; i++) {
+                var DD = date[i].slice(8)
+                var MM = date[i].slice(5,7)
+                var YYYY = date[i].slice(0,4);
                 var td = document.createElement('td');
-                td.innerText = date[i];
+                td.innerText = DD + "/" + MM + "/" + YYYY;
                 headRow.appendChild(td);
             }
 
