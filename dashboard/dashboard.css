@@ -24,6 +24,15 @@
     align-items: center;
 }
 
+datalist {
+    border: 2px solid black;
+    border-radius: 0 0 10px 10px;
+}
+
+datalist option {
+    background-color: red;
+}
+
 #date-time-div {
     display: inline-block;
     width: 40%;

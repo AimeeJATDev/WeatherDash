@@ -309,6 +309,7 @@ locationForm.addEventListener("keyup", (e) => {
         data.forEach(function(item) {
             var option = document.createElement('option');
             option.value = item;
+            option.style.color = "#FF0000"
             list.appendChild(option);
         })
     });
