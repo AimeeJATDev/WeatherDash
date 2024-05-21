@@ -1,4 +1,8 @@
 
+body {
+    background-color: #DCF2F1 !important;
+}
+
 #top-section {
      margin-top: 20px;
 }
@@ -6,7 +10,7 @@
 #input-div {
     display: inline-block;
     width: 50%;
-    margin-left: 10px;
+    margin-left: 20px;
     margin-bottom: 20px;
 }
 
@@ -48,10 +52,13 @@ datalist option {
 
 #main-forecast-div {
     display: inline-block;
-    width: 58%;
+    width: 55%;
     height: 400px;
     vertical-align: top;
-    border: 1px solid red;
+    background-color: #7FC7D9;
+    border-radius: 15px;
+    margin-left: 20px;
+    /*border: 1px solid red;*/
 }
 
 #map-div {
@@ -70,14 +77,19 @@ datalist option {
     display: inline-block;
     width: 48%;
     text-align: center;
-    border: 1px solid red;
+    background-color: #7FC7D9;
+    margin-left: 20px;
+    border-radius: 15px;
+    /*border: 1px solid red;*/
 }
 
 #weekly-forecast-div {
     display: inline-block;
     width: 48%;
-    margin-left: 58px;
+    margin-left: 20px;
     text-align: center;
-    border: 1px solid red;
+    background-color: #7FC7D9;
+    border-radius: 15px;
+    /*border: 1px solid red;*/
 }
 
