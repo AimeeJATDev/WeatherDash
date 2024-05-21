@@ -31,10 +31,9 @@ function updateTime() {
     setInterval(updateTime, 60000)
 }
 
-updateTime()
+/*updateTime()*/
 
 async function findLocation(location) {
-    
     try {
         const response = await fetch(geocodingApiUrl + new URLSearchParams({
             "key": geoApiKey,
@@ -317,6 +316,7 @@ locationForm.addEventListener("keyup", (e) => {
 locationForm.addEventListener("submit", (e) => {
     e.preventDefault();
     let inputField = document.getElementById("location-field").value;
+    document.getElementById("forecast-location").innerHTML = inputField;
 
     findLocation(inputField).then(data => {
         getCurrentWeatherData(data[0], data[1]).then(current => {
@@ -373,8 +373,6 @@ locationForm.addEventListener("submit", (e) => {
         getWeeklyWeatherData(data[0], data[1]).then(weekly => {
             console.log(weekly)
             let date = weekly.daily.time;
-            let dd = 0 ;
-            let mm = 0 ;
             
             let headRow = document.getElementById("weekly-heading");
             let forecast = weekly.daily.weather_code;
