@@ -155,6 +155,24 @@ async function autocomplete(input) {
     }
 }
 
+function getCurrentLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition)
+    }
+    else {
+        console.log("Error")
+    }
+}
+
+function showPosition(position) {
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
+
+    values = [latitude, longitude];
+
+    return values
+}
+
 function decodeWeather(weatherCode) {
     /* Weather Codes and Descriptions from: https://open-meteo.com/en/docs */
     weatherDict = {
@@ -308,6 +326,11 @@ function resetTables() {
     document.getElementById("weekly-forecast").innerHTML = "";
     document.getElementById("weekly-temp").innerHTML = "";
 }
+
+document.addEventListener("DOMContentLoaded", (e) => {
+    e.preventDefault()
+    console.log(getCurrentLocation())
+})
 
 locationForm.addEventListener("keyup", (e) => {
     e.preventDefault()
