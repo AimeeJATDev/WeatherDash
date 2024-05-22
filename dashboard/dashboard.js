@@ -300,6 +300,15 @@ function chooseImage(weatherCode, size) {
     return image
 }
 
+function resetTables() {
+    document.getElementById("hourly-heading").innerHTML = "";
+    document.getElementById("hourly-forecast").innerHTML = "";
+    document.getElementById("hourly-temp").innerHTML = "";
+    document.getElementById("weekly-heading").innerHTML = "";
+    document.getElementById("weekly-forecast").innerHTML = "";
+    document.getElementById("weekly-temp").innerHTML = "";
+}
+
 locationForm.addEventListener("keyup", (e) => {
     e.preventDefault()
     let inputField = document.getElementById("location-field").value;
@@ -315,6 +324,7 @@ locationForm.addEventListener("keyup", (e) => {
 
 locationForm.addEventListener("submit", (e) => {
     e.preventDefault();
+    resetTables()
     let inputField = document.getElementById("location-field").value;
     document.getElementById("forecast-location").innerHTML = inputField;
 
