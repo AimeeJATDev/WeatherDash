@@ -157,20 +157,20 @@ async function autocomplete(input) {
 
 function getCurrentLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition)
+        navigator.geolocation.getCurrentPosition(position => {
+            let latitude = position.coords.latitude;
+            let longitude = position.coords.longitude;
+            getCurrentWeatherData(latitude, longitude).then(current => {
+                document.getElementById("temperature").innerHTML = current.current.temperature_2m + current.current_units.temperature_2m;
+                document.getElementById("forecast").innerHTML = decodeWeather(current.current.weather_code);
+                document.getElementById("forecast-img").src = chooseImage(current.current.weather_code, "large");
+            })
+        })
+
     }
     else {
         console.log("Error")
     }
-}
-
-function showPosition(position) {
-    let latitude = position.coords.latitude;
-    let longitude = position.coords.longitude;
-
-    values = [latitude, longitude];
-
-    return values
 }
 
 function decodeWeather(weatherCode) {
@@ -329,7 +329,7 @@ function resetTables() {
 
 document.addEventListener("DOMContentLoaded", (e) => {
     e.preventDefault()
-    console.log(getCurrentLocation())
+    getCurrentLocation()
 })
 
 locationForm.addEventListener("keyup", (e) => {
