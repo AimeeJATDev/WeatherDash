@@ -164,7 +164,82 @@ function getCurrentLocation() {
                 document.getElementById("temperature").innerHTML = current.current.temperature_2m + current.current_units.temperature_2m;
                 document.getElementById("forecast").innerHTML = decodeWeather(current.current.weather_code);
                 document.getElementById("forecast-img").src = chooseImage(current.current.weather_code, "large");
-            })
+            });
+            getHourlyWeatherData(latitude, longitude).then(hourly => {
+                let currentTime = datetime();
+                let date = hourly.hourly.time;
+                let headRow = document.getElementById("hourly-heading");
+                let temp = hourly.hourly.temperature_2m;
+                let forecast = hourly.hourly.weather_code;
+                let forecastRow = document.getElementById("hourly-forecast");
+                let tempRow = document.getElementById("hourly-temp")
+                let tempValue = hourly.hourly_units.temperature_2m;
+                let hourIndex = []
+    
+                for (let i = 0; i < date.length; i++) {
+                    var td = document.createElement('td');
+                    var index = date[i].indexOf("T") + 1
+                    var hour = date[i].slice(index)
+                    if (hour > currentTime[1] ) {
+                        td.innerText = hour;
+                        headRow.appendChild(td);
+                        hourIndex.push(i)
+                    }
+                }
+
+                for (let j = 0; j < forecast.length; j++) {
+                    var td = document.createElement('td');
+                    var image = document.createElement('img');
+                    var forecastImage = chooseImage(forecast[j], "small");
+                    if (j >= hourIndex[0]) {
+                        image.src = forecastImage
+                        forecastRow.appendChild(td);
+                        td.appendChild(image)
+                    }  
+                }
+    
+                for (let k = 0; k < temp.length; k++) {
+                    var td = document.createElement('td');
+                    if (k >= hourIndex[0]) {
+                        td.innerText = temp[k] + tempValue;
+                        tempRow.appendChild(td)
+                    }
+                }
+    
+            });
+            getWeeklyWeatherData(latitude, longitude).then(weekly => {
+                let date = weekly.daily.time;
+                let headRow = document.getElementById("weekly-heading");
+                let forecast = weekly.daily.weather_code;
+                let forecastRow = document.getElementById("weekly-forecast")
+                let temp = weekly.daily.temperature_2m_max;
+                let tempRow = document.getElementById("weekly-temp");
+                let tempValue = weekly.daily_units.temperature_2m_max
+    
+                for (let i = 0; i < date.length; i++) {
+                    var DD = date[i].slice(8)
+                    var MM = date[i].slice(5,7)
+                    var YYYY = date[i].slice(0,4);
+                    var td = document.createElement('td');
+                    td.innerText = DD + "/" + MM + "/" + YYYY;
+                    headRow.appendChild(td);
+                }
+    
+                for (let j = 0; j < forecast.length; j++) {
+                    var td = document.createElement('td');
+                    var image = document.createElement('img')
+                    var forecastImage = chooseImage(forecast[j], "medium")
+                    image.src = forecastImage;
+                    forecastRow.appendChild(td);
+                    td.appendChild(image);
+                }
+    
+                for (let k = 0; k < temp.length; k++) {
+                    var td = document.createElement('td');
+                    td.innerText = temp[k] + tempValue;
+                    tempRow.appendChild(td);
+                }
+            });
         })
 
     }
