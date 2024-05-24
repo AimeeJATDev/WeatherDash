@@ -160,11 +160,13 @@ function getCurrentLocation() {
         navigator.geolocation.getCurrentPosition(position => {
             let latitude = position.coords.latitude;
             let longitude = position.coords.longitude;
+
             getCurrentWeatherData(latitude, longitude).then(current => {
                 document.getElementById("temperature").innerHTML = current.current.temperature_2m + current.current_units.temperature_2m;
                 document.getElementById("forecast").innerHTML = decodeWeather(current.current.weather_code);
                 document.getElementById("forecast-img").src = chooseImage(current.current.weather_code, "large");
             });
+
             getHourlyWeatherData(latitude, longitude).then(hourly => {
                 let currentTime = datetime();
                 let date = hourly.hourly.time;
@@ -205,8 +207,8 @@ function getCurrentLocation() {
                         tempRow.appendChild(td)
                     }
                 }
-    
             });
+
             getWeeklyWeatherData(latitude, longitude).then(weekly => {
                 let date = weekly.daily.time;
                 let headRow = document.getElementById("weekly-heading");
@@ -404,6 +406,7 @@ function resetTables() {
 
 document.addEventListener("DOMContentLoaded", (e) => {
     e.preventDefault()
+    resetTables()
     getCurrentLocation()
 })
 

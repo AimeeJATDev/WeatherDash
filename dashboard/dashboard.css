@@ -89,6 +89,10 @@ datalist option {
     /*border: 1px solid red;*/
 }
 
+#hourly-table td, #weekly-table td {
+    background-color: #7FC7D9;
+}
+
 #weekly-forecast-div {
     display: inline-block;
     width: 48%;
