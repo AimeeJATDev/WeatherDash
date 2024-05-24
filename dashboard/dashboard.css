@@ -37,19 +37,6 @@ datalist option {
     background-color: red;
 }
 
-/*#date-time-div {
-    display: inline-block;
-    width: 40%;
-    margin-left: 175px;
-    text-align: end;
-    border: 1px solid red;
-}*/
-
-/*#date-time-div h2 {
-    display: inline;
-    margin-left: 20px
-}*/
-
 #main-forecast-div {
     display: inline-block;
     width: 55%;
@@ -59,7 +46,6 @@ datalist option {
     background-color: #7FC7D9;
     border-radius: 15px;
     margin-left: 20px;
-    /*border: 1px solid red;*/
 }
 
 #main-forecast-div img {
@@ -72,7 +58,6 @@ datalist option {
     height: 400px;
     margin-left: 35px;
     border-radius: 15px;
-    /*border: 1px solid red;*/
 }
 
 #bottom-section {
@@ -86,7 +71,6 @@ datalist option {
     background-color: #7FC7D9;
     margin-left: 20px;
     border-radius: 15px;
-    /*border: 1px solid red;*/
 }
 
 #hourly-table td, #weekly-table td {
@@ -100,6 +84,5 @@ datalist option {
     text-align: center;
     background-color: #7FC7D9;
     border-radius: 15px;
-    /*border: 1px solid red;*/
 }
 
