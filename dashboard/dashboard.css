@@ -64,6 +64,10 @@ datalist option {
     margin-top: 20px;
 }
 
+#bottom-section h2 {
+    margin-bottom: 20px;
+}
+
 #hourly-forecast-div {
     display: inline-block;
     width: 48%;
@@ -75,6 +79,7 @@ datalist option {
 
 #hourly-table td, #weekly-table td {
     background-color: #7FC7D9;
+    border: 2px solid black;
 }
 
 #weekly-forecast-div {
