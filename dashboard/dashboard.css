@@ -83,20 +83,22 @@ datalist option {
 }
 
 #hourly-heading td {
-    border-top: 2px solid red;
-    border-left: 2px solid red;
-    border-right: 2px solid red;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
 }
 
 #hourly-forecast td {
-    border-left: 2px solid red;
-    border-right: 2px solid red;
+    border-top: 2px solid transparent;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 2px solid transparent;
 }
 
 #hourly-temp td {
-    border-left: 2px solid red;
-    border-right: 2px solid red;
-    border-bottom: 2px solid red;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
 }
 
 #weekly-forecast-div {
