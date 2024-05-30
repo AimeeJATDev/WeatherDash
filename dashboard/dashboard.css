@@ -79,23 +79,22 @@ datalist option {
 
 #hourly-table td, #weekly-table td {
     background-color: #7FC7D9;
-    /*border: 2px solid black;*/
 }
 
-#hourly-heading td {
+#hourly-heading td, #weekly-heading td {
     border-top: 2px solid black;
     border-left: 2px solid black;
     border-right: 2px solid black;
 }
 
-#hourly-forecast td {
+#hourly-forecast td, #weekly-forecast td {
     border-top: 2px solid transparent;
     border-left: 2px solid black;
     border-right: 2px solid black;
     border-bottom: 2px solid transparent;
 }
 
-#hourly-temp td {
+#hourly-temp td, #weekly-temp td {
     border-left: 2px solid black;
     border-right: 2px solid black;
     border-bottom: 2px solid black;
