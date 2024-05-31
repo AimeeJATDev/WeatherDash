@@ -192,7 +192,7 @@ function getCurrentLocation() {
                 for (let j = 0; j < forecast.length; j++) {
                     var td = document.createElement('td');
                     var image = document.createElement('img');
-                    var forecastImage = chooseImage(forecast[j], "small");
+                    var forecastImage = chooseImage(forecast[j], "medium");
                     if (j >= hourIndex[0]) {
                         image.src = forecastImage
                         forecastRow.appendChild(td);
@@ -464,7 +464,7 @@ locationForm.addEventListener("submit", (e) => {
             for (let j = 0; j < forecast.length; j++) {
                 var td = document.createElement('td');
                 var image = document.createElement('img');
-                var forecastImage = chooseImage(forecast[j], "small");
+                var forecastImage = chooseImage(forecast[j], "medium");
                 if (j >= hourIndex[0]) {
                     image.src = forecastImage
                     forecastRow.appendChild(td);

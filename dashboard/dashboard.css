@@ -101,14 +101,6 @@ datalist option {
     border-bottom: 2px solid black;
 }
 
-#hourly-heading td {
-    padding-top: 21px;
-}
-
-#hourly-temp td {
-    padding-bottom: 21px;
-}
-
 #weekly-forecast-div {
     display: inline-block;
     width: 48%;
@@ -116,13 +108,5 @@ datalist option {
     text-align: center;
     background-color: #7FC7D9;
     border-radius: 15px;
-}
-
-#weekly-heading td {
-    padding-top: 10px;
-}
-
-#weekly-temp td {
-    padding-bottom: 10px;
 }
 
