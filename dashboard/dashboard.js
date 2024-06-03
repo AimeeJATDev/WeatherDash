@@ -2,6 +2,13 @@ const weatherApiUrl = "https://api.open-meteo.com/v1/forecast?";
 const geocodingApiUrl = "https://us1.locationiq.com/v1/search?";
 const geoApiKey = "pk.94745bb3fc90ed960d50ca389a48961c"
 
+maptilersdk.config.apiKey = 'gm2EYqR1nDRlUcaiw7nu';
+const map = new maptilersdk.Map({
+    container: 'map-div', // container's id or the HTML element to render the map
+    style: "basic",
+    geolocate: maptilersdk.GeolocationType.COUNTRY
+});
+
 function datetime() {
     const date = new Date();
 
@@ -30,8 +37,6 @@ function updateTime() {
     document.getElementById("current-time").innerHTML = dateTime[1]
     setInterval(updateTime, 60000)
 }
-
-/*updateTime()*/
 
 async function findLocation(location) {
     try {
@@ -160,6 +165,10 @@ function getCurrentLocation() {
         navigator.geolocation.getCurrentPosition(position => {
             let latitude = position.coords.latitude;
             let longitude = position.coords.longitude;
+
+            map.flyTo({
+                center: [longitude, latitude]
+            });
 
             getCurrentWeatherData(latitude, longitude).then(current => {
                 document.getElementById("temperature").innerHTML = current.current.temperature_2m + current.current_units.temperature_2m;
@@ -430,6 +439,9 @@ locationForm.addEventListener("submit", (e) => {
     document.getElementById("forecast-location").innerHTML = inputField;
 
     findLocation(inputField).then(data => {
+        map.flyTo({
+            center: [data[1], data[0]]
+        })
         getCurrentWeatherData(data[0], data[1]).then(current => {
             document.getElementById("temperature").innerHTML = current.current.temperature_2m + current.current_units.temperature_2m;
             document.getElementById("forecast").innerHTML = decodeWeather(current.current.weather_code);
