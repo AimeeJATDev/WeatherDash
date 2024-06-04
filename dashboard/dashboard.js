@@ -9,11 +9,16 @@ const map = new maptilersdk.Map({
     geolocate: maptilersdk.GeolocationType.COUNTRY
 });
 
-const weatherLayer = new maptilerweather.PrecipitationLayer();
+const waterLayer = new maptilerweather.PrecipitationLayer();
+const radarLayer = new maptilerweather.RadarLayer({
+    opacity: 0.8,
+    colorramp: maptilerweather.ColorRamp.builtin.RADAR_CLOUD,
+});
 
 map.on('load', function () {
     map.setPaintProperty("Water", 'fill-color', "rgba(0, 0, 0, 0.4)");
-    map.addLayer(weatherLayer, 'Water');
+    map.addLayer(waterLayer, 'Water');
+    map.addLayer(radarLayer, 'Water');
 })
 
 function datetime() {
