@@ -5,9 +5,16 @@ const geoApiKey = "pk.94745bb3fc90ed960d50ca389a48961c"
 maptilersdk.config.apiKey = 'gm2EYqR1nDRlUcaiw7nu';
 const map = new maptilersdk.Map({
     container: 'map-div', // container's id or the HTML element to render the map
-    style: "basic",
+    style: "backdrop",
     geolocate: maptilersdk.GeolocationType.COUNTRY
 });
+
+const weatherLayer = new maptilerweather.PrecipitationLayer();
+
+map.on('load', function () {
+    map.setPaintProperty("Water", 'fill-color', "rgba(0, 0, 0, 0.4)");
+    map.addLayer(weatherLayer, 'Water');
+})
 
 function datetime() {
     const date = new Date();
