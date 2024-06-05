@@ -6,7 +6,9 @@ maptilersdk.config.apiKey = 'gm2EYqR1nDRlUcaiw7nu';
 const map = new maptilersdk.Map({
     container: 'map-div', // container's id or the HTML element to render the map
     style: "backdrop",
-    geolocate: maptilersdk.GeolocationType.COUNTRY
+    /*geolocate: maptilersdk.GeolocationType.COUNTRY*/
+    center: [16.62662018, 49.2125578],
+    zoom: 2
 });
 
 const waterLayer = new maptilerweather.PrecipitationLayer();
@@ -43,12 +45,12 @@ function datetime() {
     return values
 }
 
-function updateTime() {
+/*function updateTime() {
     let dateTime = datetime()
     document.getElementById("current-date").innerHTML = dateTime[0]
     document.getElementById("current-time").innerHTML = dateTime[1]
     setInterval(updateTime, 60000)
-}
+}*/
 
 async function findLocation(location) {
     try {
@@ -179,7 +181,8 @@ function getCurrentLocation() {
             let longitude = position.coords.longitude;
 
             map.flyTo({
-                center: [longitude, latitude]
+                center: [longitude, latitude], 
+                zoom: 10
             });
 
             getCurrentWeatherData(latitude, longitude).then(current => {
@@ -452,7 +455,8 @@ locationForm.addEventListener("submit", (e) => {
 
     findLocation(inputField).then(data => {
         map.flyTo({
-            center: [data[1], data[0]]
+            center: [data[1], data[0]],
+            zoom: 10
         })
         getCurrentWeatherData(data[0], data[1]).then(current => {
             document.getElementById("temperature").innerHTML = current.current.temperature_2m + current.current_units.temperature_2m;
