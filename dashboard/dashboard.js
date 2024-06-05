@@ -174,6 +174,16 @@ async function autocomplete(input) {
     }
 }
 
+async function revGeolocation() {
+    try {
+        const response = await fetch("https://api.maptiler.com/geocoding/8.528509,47.3774434.json?key=YOUR_MAPTILER_API_KEY")
+    }
+    catch(error) {
+        console.log(error)
+    }
+    
+}
+
 function getCurrentLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
