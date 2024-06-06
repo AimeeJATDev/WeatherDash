@@ -176,13 +176,20 @@ async function autocomplete(input) {
 
 async function revGeolocation() {
     try {
-        const response = await fetch("https://api.maptiler.com/geocoding/8.528509,47.3774434.json?key=YOUR_MAPTILER_API_KEY")
+        const response = await fetch("https://api.maptiler.com/geocoding/8.528509,47.3774434.json?key=gm2EYqR1nDRlUcaiw7nu")
+
+        const data = await response.json();
+
+        console.log(data);
+        return data;
     }
     catch(error) {
         console.log(error)
     }
     
 }
+
+revGeolocation()
 
 function getCurrentLocation() {
     if (navigator.geolocation) {

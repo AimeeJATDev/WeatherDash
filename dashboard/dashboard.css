@@ -48,8 +48,8 @@ datalist option {
     margin-left: 20px;
 }
 
-#main-forecast-div img {
-    /*margin-top: 50px;*/
+#main-forecast-div #forecast-location {
+    margin-top: 70px;
 }
 
 #map-div {
