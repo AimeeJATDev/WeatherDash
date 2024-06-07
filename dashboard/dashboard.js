@@ -176,7 +176,7 @@ async function autocomplete(input) {
 
 async function revGeolocation() {
     try {
-        const response = await fetch("https://api.maptiler.com/geocoding/8.528509,47.3774434.json?key=gm2EYqR1nDRlUcaiw7nu")
+        const response = await fetch("https://us1.locationiq.com/v1/reverse?key=pk.94745bb3fc90ed960d50ca389a48961c&lat=49.467280&lon=-2.5392605&format=json")
 
         const data = await response.json();
 
