@@ -193,7 +193,7 @@ revGeolocation()
 
 function populatePage(lat, long) {
     map.flyTo({
-        center: [lat, long],
+        center: [long, lat],
         zoom: 10
     });
     getCurrentWeatherData(lat, long).then(current => {
