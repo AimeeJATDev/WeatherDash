@@ -1,5 +1,6 @@
 const weatherApiUrl = "https://api.open-meteo.com/v1/forecast?";
 const geocodingApiUrl = "https://us1.locationiq.com/v1/search?";
+const revGeocodingApiUrl = "https://us1.locationiq.com/v1/reverse?"
 const geoApiKey = "pk.94745bb3fc90ed960d50ca389a48961c"
 
 maptilersdk.config.apiKey = 'gm2EYqR1nDRlUcaiw7nu';
@@ -174,9 +175,14 @@ async function autocomplete(input) {
     }
 }
 
-async function revGeolocation() {
+async function revGeolocation(latitude, longitude) {
     try {
-        const response = await fetch("https://us1.locationiq.com/v1/reverse?key=pk.94745bb3fc90ed960d50ca389a48961c&lat=49.467280&lon=-2.5392605&format=json")
+        const response = await fetch(revGeocodingApiUrl + new URLSearchParams({
+            "key": geoApiKey,
+            "lat": latitude, 
+            "lon": longitude,
+            "format": "json"
+        }));
 
         const data = await response.json();
 
@@ -189,13 +195,20 @@ async function revGeolocation() {
     
 }
 
-revGeolocation()
-
 function populatePage(lat, long) {
     map.flyTo({
         center: [long, lat],
         zoom: 10
     });
+    revGeolocation(lat, long).then(loc => {
+        if (!loc.address.city) {
+            document.getElementById("forecast-location").innerHTML = loc.address.country;
+        }
+        else {
+            document.getElementById("forecast-location").innerHTML = loc.address.city + ", " + loc.address.country;
+        }
+        
+    })
     getCurrentWeatherData(lat, long).then(current => {
         document.getElementById("temperature").innerHTML = current.current.temperature_2m + current.current_units.temperature_2m;
         document.getElementById("forecast").innerHTML = decodeWeather(current.current.weather_code);
@@ -477,7 +490,7 @@ locationForm.addEventListener("submit", (e) => {
     e.preventDefault();
     resetTables()
     let inputField = document.getElementById("location-field").value;
-    document.getElementById("forecast-location").innerHTML = inputField;
+    /*document.getElementById("forecast-location").innerHTML = inputField;*/
 
     findLocation(inputField).then(data => {
         populatePage(data[0], data[1]);
