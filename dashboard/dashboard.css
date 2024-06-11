@@ -49,7 +49,11 @@ datalist option {
 }
 
 #main-forecast-div #forecast-location {
-    margin-top: 70px;
+    margin-top: 60px;
+}
+
+.main-forecast {
+    margin-bottom: 20px;
 }
 
 #map-div {
