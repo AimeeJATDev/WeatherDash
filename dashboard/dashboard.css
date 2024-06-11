@@ -76,10 +76,15 @@ datalist option {
 #hourly-forecast-div {
     display: inline-block;
     width: 48%;
+    height: 350px;
     text-align: center;
     background-color: #7FC7D9;
     margin-left: 20px;
     border-radius: 15px;
+}
+
+#hourly-table, #weekly-table {
+    margin-top: 50px;
 }
 
 #hourly-table td, #weekly-table td {
@@ -108,6 +113,7 @@ datalist option {
 #weekly-forecast-div {
     display: inline-block;
     width: 48%;
+    height: 350px;
     margin-left: 20px;
     text-align: center;
     background-color: #7FC7D9;
