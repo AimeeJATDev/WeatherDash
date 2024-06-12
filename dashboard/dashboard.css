@@ -7,6 +7,11 @@ body {
      margin-top: 20px;
 }
 
+#main-heading {
+    display: inline-block;
+    margin-left: 20px;
+}
+
 #input-div {
     display: inline-block;
     width: 50%;
@@ -84,7 +89,7 @@ datalist option {
 }
 
 #hourly-table, #weekly-table {
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
 #hourly-table td, #weekly-table td {
@@ -95,6 +100,7 @@ datalist option {
     border-top: 2px solid black;
     border-left: 2px solid black;
     border-right: 2px solid black;
+    border-top-left-radius: 15px;
 }
 
 #hourly-forecast td, #weekly-forecast td {
@@ -108,6 +114,10 @@ datalist option {
     border-left: 2px solid black;
     border-right: 2px solid black;
     border-bottom: 2px solid black;
+}
+
+#hourly-forecast-div, #weekly-forecast-div {
+    padding: 20px;
 }
 
 #weekly-forecast-div {
