@@ -5,9 +5,8 @@ const geoApiKey = "pk.94745bb3fc90ed960d50ca389a48961c"
 
 maptilersdk.config.apiKey = 'gm2EYqR1nDRlUcaiw7nu';
 const map = new maptilersdk.Map({
-    container: 'map-div', // container's id or the HTML element to render the map
+    container: 'map-div',
     style: "backdrop",
-    /*geolocate: maptilersdk.GeolocationType.COUNTRY*/
     center: [16.62662018, 49.2125578],
     zoom: 2
 });
@@ -71,7 +70,6 @@ async function findLocation(location) {
         let longitude = data[0].lon;
 
         values = [latitude, longitude]
-
         return values;
 
     }
@@ -93,7 +91,6 @@ async function getCurrentWeatherData(latitude, longitude) {
         }
 
         const data = await response.json()
-
         return data;
     }
     catch(error) {
@@ -115,7 +112,6 @@ async function getHourlyWeatherData(latitude, longitude) {
         }
 
         const data = await response.json()
-
         return data;
         
     }
@@ -138,7 +134,6 @@ async function getWeeklyWeatherData(latitude, longitude) {
         }
 
         const data = await response.json();
-
         return data;
         
     }
@@ -191,8 +186,7 @@ async function revGeolocation(latitude, longitude) {
     }
     catch(error) {
         console.log(error)
-    }
-    
+    } 
 }
 
 function populatePage(lat, long) {
@@ -207,7 +201,6 @@ function populatePage(lat, long) {
         else {
             document.getElementById("forecast-location").innerHTML = loc.address.city + ", " + loc.address.country;
         }
-        
     })
     getCurrentWeatherData(lat, long).then(current => {
         document.getElementById("temperature").innerHTML = current.current.temperature_2m + current.current_units.temperature_2m;
@@ -239,7 +232,6 @@ function populatePage(lat, long) {
             }
         }
 
-
         for (let j = 0; j < forecast.length; j++) {
             var td = document.createElement('td');
             var image = document.createElement('img');
@@ -258,7 +250,6 @@ function populatePage(lat, long) {
                 tempRow.appendChild(td)
             }
         }
-
     });
     getWeeklyWeatherData(lat, long).then(weekly => {
         console.log(weekly)
@@ -306,7 +297,6 @@ function getCurrentLocation() {
 
             populatePage(latitude, longitude);
         });
-
     }
     else {
         console.log("Error")
@@ -454,7 +444,6 @@ function chooseImage(weatherCode, size) {
             image = "images/large/icons8-storm-96.png"
         }
     }
-
     return image
 }
 
@@ -490,7 +479,6 @@ locationForm.addEventListener("submit", (e) => {
     e.preventDefault();
     resetTables()
     let inputField = document.getElementById("location-field").value;
-    /*document.getElementById("forecast-location").innerHTML = inputField;*/
 
     findLocation(inputField).then(data => {
         populatePage(data[0], data[1]);
