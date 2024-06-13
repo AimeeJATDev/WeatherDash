@@ -219,15 +219,19 @@ function populatePage(lat, long) {
         let tempRow = document.getElementById("hourly-temp")
         let tempValue = hourly.hourly_units.temperature_2m;
 
+        let hourlyHeading = document.getElementById("hourly-div");
+
         let hourIndex = []
 
         for (let i = 0; i < date.length; i++) {
             var td = document.createElement('td');
+            var div = document.createElement('div')
             var index = date[i].indexOf("T") + 1
             var hour = date[i].slice(index)
             if (hour > currentTime[1] ) {
-                td.innerText = hour;
+                div.innerText = hour;
                 headRow.appendChild(td);
+                hourlyHeading.appendChild(div)
                 hourIndex.push(i)
             }
         }
