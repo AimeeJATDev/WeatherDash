@@ -224,14 +224,24 @@ function populatePage(lat, long) {
         let hourIndex = []
 
         for (let i = 0; i < date.length; i++) {
-            var td = document.createElement('td');
-            var div = document.createElement('div')
+            /*var td = document.createElement('td');*/
+            var div = document.createElement('div');
+            var p1 = document.createElement('p');
+            var image = document.createElement('img');
+            var p2 = document.createElement('p');
+
             var index = date[i].indexOf("T") + 1
             var hour = date[i].slice(index)
+            var forecastImage = chooseImage(forecast[i], "medium");
             if (hour > currentTime[1] ) {
-                div.innerText = hour;
-                headRow.appendChild(td);
+                p1.innerText = hour;
+                image.src = forecastImage;
+                p2.innerText = temp[i] + tempValue;
+                /*headRow.appendChild(td);*/
                 hourlyHeading.appendChild(div)
+                div.appendChild(p1)
+                div.appendChild(image)
+                div.appendChild(p2)
                 hourIndex.push(i)
             }
         }
