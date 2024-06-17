@@ -212,19 +212,12 @@ function populatePage(lat, long) {
         console.log(hourly);
         let currentTime = datetime();
         let date = hourly.hourly.time;
-        /*let headRow = document.getElementById("hourly-heading");*/
         let temp = hourly.hourly.temperature_2m;
         let forecast = hourly.hourly.weather_code;
-        /*let forecastRow = document.getElementById("hourly-forecast");*/
-        /*let tempRow = document.getElementById("hourly-temp")*/
         let tempValue = hourly.hourly_units.temperature_2m;
-
         let hourlyHeading = document.getElementById("hourly-div");
 
-        /*let hourIndex = []*/
-
         for (let i = 0; i < date.length; i++) {
-            /*var td = document.createElement('td');*/
             var div = document.createElement('div');
             var p1 = document.createElement('p');
             var image = document.createElement('img');
@@ -237,33 +230,12 @@ function populatePage(lat, long) {
                 p1.innerText = hour;
                 image.src = forecastImage;
                 p2.innerText = temp[i] + tempValue;
-                /*headRow.appendChild(td);*/
                 hourlyHeading.appendChild(div)
                 div.appendChild(p1)
                 div.appendChild(image)
                 div.appendChild(p2)
-                /*hourIndex.push(i)*/
             }
         }
-
-        /*for (let j = 0; j < forecast.length; j++) {
-            var td = document.createElement('td');
-            var image = document.createElement('img');
-            var forecastImage = chooseImage(forecast[j], "medium");
-            if (j >= hourIndex[0]) {
-                image.src = forecastImage
-                forecastRow.appendChild(td);
-                td.appendChild(image)
-            }  
-        }
-
-        for (let k = 0; k < temp.length; k++) {
-            var td = document.createElement('td');
-            if (k >= hourIndex[0]) {
-                td.innerText = temp[k] + tempValue;
-                tempRow.appendChild(td)
-            }
-        }*/
     });
     getWeeklyWeatherData(lat, long).then(weekly => {
         console.log(weekly)
@@ -271,14 +243,6 @@ function populatePage(lat, long) {
         let temp = weekly.daily.temperature_2m_max;
         let forecast = weekly.daily.weather_code;
         let tempValue = weekly.daily_units.temperature_2m_max
-        
-        /*let headRow = document.getElementById("weekly-heading");*/
-        /*let forecast = weekly.daily.weather_code;
-        let forecastRow = document.getElementById("weekly-forecast")
-        let temp = weekly.daily.temperature_2m_max;
-        let tempRow = document.getElementById("weekly-temp");
-        let tempValue = weekly.daily_units.temperature_2m_max*/
-
         let weeklyHeading = document.getElementById("weekly-div");
 
         for (let i = 0; i < date.length; i++) {
@@ -287,7 +251,6 @@ function populatePage(lat, long) {
             var YYYY = date[i].slice(0,4);
             var forecastImage = chooseImage(forecast[i], "medium")
 
-            var td = document.createElement('td');
             var div = document.createElement('div');
             var p1 = document.createElement('p');
             var image = document.createElement('img');
@@ -301,21 +264,6 @@ function populatePage(lat, long) {
             div.appendChild(image);
             div.appendChild(p2);
         }
-
-        /*for (let j = 0; j < forecast.length; j++) {
-            var td = document.createElement('td');
-            var image = document.createElement('img')
-            var forecastImage = chooseImage(forecast[j], "medium")
-            image.src = forecastImage;
-            forecastRow.appendChild(td);
-            td.appendChild(image);
-        }
-
-        for (let k = 0; k < temp.length; k++) {
-            var td = document.createElement('td');
-            td.innerText = temp[k] + tempValue;
-            tempRow.appendChild(td);
-        }*/
     });
 
 }

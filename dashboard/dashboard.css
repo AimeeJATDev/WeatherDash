@@ -91,7 +91,7 @@ datalist option {
     border-radius: 15px;
 }
 
-#hourly-div div {
+#hourly-div div , #weekly-div div {
     display: inline-block;
     border: 1px solid black;
     padding: 10px;
