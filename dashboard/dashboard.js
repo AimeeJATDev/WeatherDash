@@ -268,24 +268,41 @@ function populatePage(lat, long) {
     getWeeklyWeatherData(lat, long).then(weekly => {
         console.log(weekly)
         let date = weekly.daily.time;
-        
-        let headRow = document.getElementById("weekly-heading");
+        let temp = weekly.daily.temperature_2m_max;
         let forecast = weekly.daily.weather_code;
+        let tempValue = weekly.daily_units.temperature_2m_max
+        
+        /*let headRow = document.getElementById("weekly-heading");*/
+        /*let forecast = weekly.daily.weather_code;
         let forecastRow = document.getElementById("weekly-forecast")
         let temp = weekly.daily.temperature_2m_max;
         let tempRow = document.getElementById("weekly-temp");
-        let tempValue = weekly.daily_units.temperature_2m_max
+        let tempValue = weekly.daily_units.temperature_2m_max*/
+
+        let weeklyHeading = document.getElementById("weekly-div");
 
         for (let i = 0; i < date.length; i++) {
             var DD = date[i].slice(8)
             var MM = date[i].slice(5,7)
             var YYYY = date[i].slice(0,4);
+            var forecastImage = chooseImage(forecast[i], "medium")
+
             var td = document.createElement('td');
-            td.innerText = DD + "/" + MM + "/" + YYYY;
-            headRow.appendChild(td);
+            var div = document.createElement('div');
+            var p1 = document.createElement('p');
+            var image = document.createElement('img');
+            var p2 = document.createElement('p');
+
+            p1.innerText = DD + "/" + MM + "/" + YYYY;
+            image.src = forecastImage;
+            p2.innerText = temp[i] + tempValue;
+            weeklyHeading.appendChild(div);
+            div.appendChild(p1);
+            div.appendChild(image);
+            div.appendChild(p2);
         }
 
-        for (let j = 0; j < forecast.length; j++) {
+        /*for (let j = 0; j < forecast.length; j++) {
             var td = document.createElement('td');
             var image = document.createElement('img')
             var forecastImage = chooseImage(forecast[j], "medium")
@@ -298,7 +315,7 @@ function populatePage(lat, long) {
             var td = document.createElement('td');
             td.innerText = temp[k] + tempValue;
             tempRow.appendChild(td);
-        }
+        }*/
     });
 
 }
