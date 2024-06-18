@@ -427,17 +427,17 @@ function chooseImage(weatherCode, size) {
 }
 
 function resetTables() {
-    document.getElementById("hourly-heading").innerHTML = "";
+    /*document.getElementById("hourly-heading").innerHTML = "";
     document.getElementById("hourly-forecast").innerHTML = "";
     document.getElementById("hourly-temp").innerHTML = "";
     document.getElementById("weekly-heading").innerHTML = "";
     document.getElementById("weekly-forecast").innerHTML = "";
-    document.getElementById("weekly-temp").innerHTML = "";
+    document.getElementById("weekly-temp").innerHTML = "";*/
 }
 
 document.addEventListener("DOMContentLoaded", (e) => {
     e.preventDefault()
-    resetTables()
+    /*resetTables()*/
     getCurrentLocation()
 })
 
