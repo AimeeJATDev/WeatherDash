@@ -17,6 +17,10 @@ body {
     color: #DDE6ED;
 }
 
+h2 {
+    color: black !important;
+}
+
 #input-div {
     display: inline-block;
     width: 50%;
@@ -101,39 +105,12 @@ datalist option {
     padding: 8px 8px 0 8px;
     margin-left: 5px;
     margin-top: 20px;
+    box-shadow: 2px 2px #27374D;
 }
 
 #hourly-div img, #weekly-div img {
     margin-bottom: 10px;
 }
-
-/*#hourly-table, #weekly-table {
-    margin-top: 40px;
-}
-
-#hourly-table td, #weekly-table td {
-    background-color: #7FC7D9;
-}
-
-#hourly-heading td, #weekly-heading td {
-    border-top: 2px solid black;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-    border-top-left-radius: 15px;
-}
-
-#hourly-forecast td, #weekly-forecast td {
-    border-top: 2px solid transparent;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-    border-bottom: 2px solid transparent;
-}
-
-#hourly-temp td, #weekly-temp td {
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-    border-bottom: 2px solid black;
-}*/
 
 #hourly-forecast-div, #weekly-forecast-div {
     padding: 20px;
