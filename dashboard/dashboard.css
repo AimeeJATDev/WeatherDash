@@ -1,9 +1,10 @@
+/* Colour Scheme: https://colorhunt.co/palette/27374d526d829db2bfdde6ed */
 * {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body {
-    background-color: #DCF2F1 !important;
+    background-color: #27374D !important;
 }
 
 #top-section {
@@ -13,6 +14,7 @@ body {
 #main-heading {
     display: inline-block;
     margin-left: 20px;
+    color: #DDE6ED;
 }
 
 #input-div {
@@ -51,7 +53,7 @@ datalist option {
     height: 400px;
     text-align: center;
     vertical-align: top;
-    background-color: #7FC7D9;
+    background-color: #526D82;
     border-radius: 15px;
     margin-left: 20px;
 }
@@ -86,15 +88,17 @@ datalist option {
     width: 48%;
     height: 350px;
     text-align: center;
-    background-color: #7FC7D9;
+    background-color: #526D82;
     margin-left: 20px;
     border-radius: 15px;
 }
 
 #hourly-div div , #weekly-div div {
     display: inline-block;
-    border: 1px solid black;
-    padding: 10px 10px 0 10px;
+    background-color: #9DB2BF;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 8px 8px 0 8px;
     margin-left: 5px;
     margin-top: 20px;
 }
@@ -141,7 +145,7 @@ datalist option {
     height: 350px;
     margin-left: 20px;
     text-align: center;
-    background-color: #7FC7D9;
+    background-color: #526D82;
     border-radius: 15px;
 }
 
