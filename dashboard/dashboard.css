@@ -97,8 +97,17 @@ datalist option {
     border-radius: 15px;
 }
 
+#hourly-div, #weekly-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#hourly-div div {
+    width: 15%;
+}
+
 #hourly-div div , #weekly-div div {
-    display: inline-block;
     background-color: #9DB2BF;
     border: 2px solid black;
     border-radius: 15px;
