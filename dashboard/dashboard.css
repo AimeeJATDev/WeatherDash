@@ -9,11 +9,14 @@ body {
 
 #top-section {
      margin-top: 20px;
+     margin-bottom: 30px;
 }
 
 #main-heading {
     display: inline-block;
     margin-left: 20px;
+    margin-right: 145px;
+    margin-bottom: 25px;
     color: #DDE6ED;
 }
 
