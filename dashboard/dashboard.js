@@ -1,8 +1,12 @@
+/* API URLs */
 const weatherApiUrl = "https://api.open-meteo.com/v1/forecast?";
 const geocodingApiUrl = "https://us1.locationiq.com/v1/search?";
 const revGeocodingApiUrl = "https://us1.locationiq.com/v1/reverse?"
+
+/* Geocoding API Key */ 
 const geoApiKey = "pk.94745bb3fc90ed960d50ca389a48961c"
 
+/* Maptiler map creation */
 maptilersdk.config.apiKey = 'gm2EYqR1nDRlUcaiw7nu';
 const map = new maptilersdk.Map({
     container: 'map-div',
@@ -11,12 +15,14 @@ const map = new maptilersdk.Map({
     zoom: 2
 });
 
+/* Creates weather layers for map */
 const waterLayer = new maptilerweather.PrecipitationLayer();
 const radarLayer = new maptilerweather.RadarLayer({
     opacity: 0.8,
     colorramp: maptilerweather.ColorRamp.builtin.RADAR_CLOUD,
 });
 
+/* Adds weather layers to map */
 map.on('load', function () {
     map.setPaintProperty("Water", 'fill-color', "rgba(0, 0, 0, 0.4)");
     map.addLayer(waterLayer, 'Water');
