@@ -1,3 +1,6 @@
+/* Get location form by ID */
+let locationForm = document.getElementById("location-form");
+
 /* API URLs */
 const weatherApiUrl = "https://api.open-meteo.com/v1/forecast?";
 const geocodingApiUrl = "https://us1.locationiq.com/v1/search?";
@@ -51,13 +54,6 @@ function datetime() {
     return values
 }
 
-/*function updateTime() {
-    let dateTime = datetime()
-    document.getElementById("current-date").innerHTML = dateTime[0]
-    document.getElementById("current-time").innerHTML = dateTime[1]
-    setInterval(updateTime, 60000)
-}*/
-
 async function findLocation(location) {
     try {
         const response = await fetch(geocodingApiUrl + new URLSearchParams({
@@ -75,12 +71,12 @@ async function findLocation(location) {
         let latitude = data[0].lat;
         let longitude = data[0].lon;
 
-        values = [latitude, longitude]
+        values = [latitude, longitude];
         return values;
-
     }
+
     catch(error) {
-        console.log(error)
+        console.log(error);
     }
 }
 
@@ -90,17 +86,18 @@ async function getCurrentWeatherData(latitude, longitude) {
             "latitude": latitude,
             "longitude": longitude,
             "current": ["temperature_2m", "weather_code"]
-        }))
+        }));
 
         if (!response.ok) {
-            throw new Error("Issue with network response")
+            throw new Error("Issue with network response");
         }
 
-        const data = await response.json()
+        const data = await response.json();
         return data;
     }
+
     catch(error) {
-        console.log(error)
+        console.log(error);
     }
 }
 
@@ -111,18 +108,18 @@ async function getHourlyWeatherData(latitude, longitude) {
             "longitude": longitude,
             "hourly": ["temperature_2m", "weather_code"],
             "forecast_days": 1
-        }))
+        }));
 
         if (!response.ok) {
-            throw new Error("Issue with network response")
+            throw new Error("Issue with network response");
         }
 
-        const data = await response.json()
+        const data = await response.json();
         return data;
-        
     }
+
     catch(error) {
-        console.log(error)
+        console.log(error);
     }
 }
 
@@ -133,22 +130,21 @@ async function getWeeklyWeatherData(latitude, longitude) {
             "longitude": longitude,
             "daily": ["temperature_2m_max", "weather_code"],
             "forecast_days": 7
-        }))
+        }));
 
         if (!response.ok) {
-            throw new Error("Issue with network response")
+            throw new Error("Issue with network response");
         }
 
         const data = await response.json();
         return data;
-        
     }
+
     catch(error) {
-        console.log(error)
+        console.log(error);
     }
 }
 
-let locationForm = document.getElementById("location-form");
 
 async function autocomplete(input) {
     try {
@@ -159,20 +155,20 @@ async function autocomplete(input) {
         }));
 
         if (!response.ok) {
-            throw new Error("Issue with network response")
+            throw new Error("Issue with network response");
         }
 
         const data = await response.json();
-        let places = []
+        let places = [];
 
         for (let i = 0; i < data.length; i++) {
-            places.push(data[i].display_name)
+            places.push(data[i].display_name);
         }
 
         return places;
     }
     catch(error) {
-        console.log(error)
+        console.log(error);
     }
 }
 
@@ -191,7 +187,7 @@ async function revGeolocation(latitude, longitude) {
         return data;
     }
     catch(error) {
-        console.log(error)
+        console.log(error);
     } 
 }
 
@@ -207,15 +203,15 @@ function populatePage(lat, long) {
         else {
             document.getElementById("forecast-location").innerHTML = loc.address.city + ", " + loc.address.country;
         }
-    })
+    });
     getCurrentWeatherData(lat, long).then(current => {
         document.getElementById("temperature").innerHTML = current.current.temperature_2m + current.current_units.temperature_2m;
         document.getElementById("forecast").innerHTML = decodeWeather(current.current.weather_code);
         document.getElementById("forecast-img").src = chooseImage(current.current.weather_code, "large");
-        console.log(current)
+        /*console.log(current);*/
     });
     getHourlyWeatherData(lat, long).then(hourly => {
-        console.log(hourly);
+        /*console.log(hourly);*/
         let currentTime = datetime();
         let date = hourly.hourly.time;
         let temp = hourly.hourly.temperature_2m;
@@ -229,22 +225,22 @@ function populatePage(lat, long) {
             var image = document.createElement('img');
             var p2 = document.createElement('p');
 
-            var index = date[i].indexOf("T") + 1
-            var hour = date[i].slice(index)
+            var index = date[i].indexOf("T") + 1;
+            var hour = date[i].slice(index);
             var forecastImage = chooseImage(forecast[i], "medium");
             if (hour > currentTime[1] ) {
                 p1.innerText = hour;
                 image.src = forecastImage;
                 p2.innerText = temp[i] + tempValue;
-                hourlyHeading.appendChild(div)
-                div.appendChild(p1)
-                div.appendChild(image)
-                div.appendChild(p2)
+                hourlyHeading.appendChild(div);
+                div.appendChild(p1);
+                div.appendChild(image);
+                div.appendChild(p2);
             }
         }
     });
     getWeeklyWeatherData(lat, long).then(weekly => {
-        console.log(weekly)
+        /*console.log(weekly)*/
         let date = weekly.daily.time;
         let temp = weekly.daily.temperature_2m_max;
         let forecast = weekly.daily.weather_code;
@@ -252,10 +248,10 @@ function populatePage(lat, long) {
         let weeklyHeading = document.getElementById("weekly-div");
 
         for (let i = 0; i < date.length; i++) {
-            var DD = date[i].slice(8)
-            var MM = date[i].slice(5,7)
+            var DD = date[i].slice(8);
+            var MM = date[i].slice(5,7);
             var YYYY = date[i].slice(0,4);
-            var forecastImage = chooseImage(forecast[i], "medium")
+            var forecastImage = chooseImage(forecast[i], "medium");
 
             var div = document.createElement('div');
             var p1 = document.createElement('p');
@@ -271,7 +267,6 @@ function populatePage(lat, long) {
             div.appendChild(p2);
         }
     });
-
 }
 
 function getCurrentLocation() {
@@ -284,7 +279,7 @@ function getCurrentLocation() {
         });
     }
     else {
-        console.log("Error")
+        console.log("Error");
     }
 }
 
