@@ -44,14 +44,13 @@ function datetime() {
     let hours = date.getHours();
     let minutes = date.getMinutes();
     if (minutes < 10) {
-        minutes = "0" + minutes
+        minutes = "0" + minutes;
     }
 
     let currentTime = `${hours}:${minutes}`;
+    values = [currentDate, currentTime];
 
-    values = [currentDate, currentTime]
-
-    return values
+    return values;
 }
 
 async function findLocation(location) {
@@ -327,136 +326,136 @@ function chooseImage(weatherCode, size) {
     let image;
     if (weatherCode == 0) {
         if (size == "small") {
-            image = "images/small/icons8-sun-24.png"
+            image = "images/small/icons8-sun-24.png";
         }
         else if (size == "medium") {
-            image = "images/medium/icons8-sun-48.png"
+            image = "images/medium/icons8-sun-48.png";
         }
         else if (size == "large") {
-            image = "images/large/icons8-sun-96.png"
+            image = "images/large/icons8-sun-96.png";
         }
     }
     else if (weatherCode == 1 || weatherCode == 2) {
         if (size == "small") {
-            image = "images/small/icons8-partly-cloudy-day-24.png"
+            image = "images/small/icons8-partly-cloudy-day-24.png";
         }
         else if (size == "medium") {
-            image = "images/medium/icons8-partly-cloudy-day-48.png"
+            image = "images/medium/icons8-partly-cloudy-day-48.png";
         }
         else if (size == "large") {
-            image = "images/large/icons8-partly-cloudy-day-96.png"
+            image = "images/large/icons8-partly-cloudy-day-96.png";
         }   
     }
     else if (weatherCode == 3) {
         if (size == "small") {
-            image = "images/small/icons8-cloud-24.png"
+            image = "images/small/icons8-cloud-24.png";
         }
         else if (size == "medium") {
-            image = "images/medium/icons8-cloud-48.png"
+            image = "images/medium/icons8-cloud-48.png";
         }
         else if (size == "large") {
-            image = "images/large/icons8-cloud-96.png"
+            image = "images/large/icons8-cloud-96.png";
         }
     }
     else if (weatherCode == 45 || weatherCode == 48) {
         if (size == "small") {
-            image = "images/small/icons8-fog-24.png"
+            image = "images/small/icons8-fog-24.png";
         }
         else if (size == "medium") {
-            image = "images/medium/icons8-fog-48.png"
+            image = "images/medium/icons8-fog-48.png";
         }
         else if (size == "large") {
-            image = "images/large/icons8-fog-96.png"
+            image = "images/large/icons8-fog-96.png";
         }
     }
     else if (weatherCode == 51 || weatherCode == 53 || weatherCode == 55) {
         if (size == "small") {
-            image = "images/small/icons8-drizzle-24.png"
+            image = "images/small/icons8-drizzle-24.png";
         }
         else if (size == "medium") {
-            image = "images/medium/icons8-drizzle-48.png"
+            image = "images/medium/icons8-drizzle-48.png";
         }
         else if (size == "large") {
-            image = "images/large/icons8-drizzle-96.png"
+            image = "images/large/icons8-drizzle-96.png";
         }
     }
     else if (weatherCode == 56 || weatherCode == 57 || weatherCode == 66 || weatherCode == 67) {
         if (size == "small") {
-            image = "images/small/icons8-sleet-24.png"
+            image = "images/small/icons8-sleet-24.png";
         }
         else if (size == "medium") {
-            image = "images/medium/icons8-sleet-48.png"
+            image = "images/medium/icons8-sleet-48.png";
         }
         else if (size == "large") {
-            image = "images/large/icons8-sleet-96.png"
+            image = "images/large/icons8-sleet-96.png";
         }
     }
     else if (weatherCode == 61 || weatherCode == 63 || weatherCode == 65 || weatherCode == 80 || weatherCode == 81 || weatherCode == 82) {
         if (size == "small") {
-            image = "images/small/icons8-rain-24.png"
+            image = "images/small/icons8-rain-24.png";
         }
         else if (size == "medium") {
-            image = "images/medium/icons8-rain-48.png"
+            image = "images/medium/icons8-rain-48.png";
         }
         else if (size == "large") {
-            image = "images/large/icons8-rain-96.png"
+            image = "images/large/icons8-rain-96.png";
         }
     }
     else if (weatherCode == 71 || weatherCode == 73 || weatherCode == 75 || weatherCode == 77 || weatherCode == 85 || weatherCode == 86) {
         if (size == "small") {
-            image = "images/small/icons8-snow-24.png"
+            image = "images/small/icons8-snow-24.png";
         }
         else if (size == "medium") {
-            image = "images/medium/icons8-snow-48.png"
+            image = "images/medium/icons8-snow-48.png";
         }
         else if (size == "large") {
-            image = "images/large/icons8-snow-96.png"
+            image = "images/large/icons8-snow-96.png";
         }
     }
     else if (weatherCode == 95 || weatherCode == 96 || weatherCode == 99) {
         if (size == "small") {
-            image = "images/small/icons8-storm-24.png"
+            image = "images/small/icons8-storm-24.png";
         }
         else if (size == "medium") {
-            image = "images/medium/icons8-storm-48.png"
+            image = "images/medium/icons8-storm-48.png";
         }
         else if (size == "large") {
-            image = "images/large/icons8-storm-96.png"
+            image = "images/large/icons8-storm-96.png";
         }
     }
-    return image
+    return image;
 }
 
 function resetData() {
-    document.getElementById("hourly-div").innerHTML = ""
-    document.getElementById("weekly-div").innerHTML = ""
+    document.getElementById("hourly-div").innerHTML = "";
+    document.getElementById("weekly-div").innerHTML = "";
 }
 
 document.addEventListener("DOMContentLoaded", (e) => {
-    e.preventDefault()
-    resetData()
-    getCurrentLocation()
-})
+    e.preventDefault();
+    resetData();
+    getCurrentLocation();
+});
 
 locationForm.addEventListener("keyup", (e) => {
-    e.preventDefault()
+    e.preventDefault();
     let inputField = document.getElementById("location-field").value;
     autocomplete(inputField).then(data => {
-        var list = document.getElementById("location-list")
+        var list = document.getElementById("location-list");
         data.forEach(function(item) {
             var option = document.createElement('option');
             option.value = item;
             list.appendChild(option);
-        })
+        });
     });
-})
+});
 
 locationForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    resetData()
+    resetData();
     let inputField = document.getElementById("location-field").value;
 
     findLocation(inputField).then(data => {
         populatePage(data[0], data[1]);
-    })
+    });
 });
