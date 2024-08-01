@@ -1,3 +1,9 @@
+
+const sqlite3 = require('sqlite3').verbose();
+const db = new sqlite3.Database('weather.db');
+db.run(`SELECT * FROM weatherCode;`)
+
+
 /* Get location form by ID */
 let locationForm = document.getElementById("location-form");
 
