@@ -1,5 +1,11 @@
 
-const sqlite3 = require('sqlite3').verbose();
+
+
+
+define(function (require) {
+    var sqlite3 = require('sqlite3');
+});
+
 const db = new sqlite3.Database('weather.db');
 db.run(`SELECT * FROM weatherCode;`)
 
