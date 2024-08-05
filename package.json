@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@maptiler/sdk": "^1.2.1",
+    "amd-loader": "^0.0.8",
     "sqlite3": "^5.1.7"
   }
 }
