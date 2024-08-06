@@ -1,10 +1,6 @@
 import { require } from "../addRequire.js"
 
-define(function (require) {
-    var sqlite3 = require('sqlite3');
-
-    return function () {};
-});
+var sqlite3 = require('sqlite3');
 
 const db = new sqlite3.Database('weather.db');
 db.run(`SELECT * FROM weatherCode;`)

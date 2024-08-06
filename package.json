@@ -2,6 +2,20 @@
   "dependencies": {
     "@maptiler/sdk": "^1.2.1",
     "amd-loader": "^0.0.8",
+    "module": "^1.2.5",
     "sqlite3": "^5.1.7"
-  }
+  },
+
+  "name": "weatherdash",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Weather Dashboard Extension",
+  "main": "dashboard.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
 }
