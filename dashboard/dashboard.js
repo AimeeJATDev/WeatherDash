@@ -1,11 +1,3 @@
-import { require } from "../addRequire.js"
-
-var sqlite3 = require('sqlite3');
-
-const db = new sqlite3.Database('weather.db');
-db.run(`SELECT * FROM weatherCode;`)
-
-
 /* Get location form by ID */
 let locationForm = document.getElementById("location-form");
 
