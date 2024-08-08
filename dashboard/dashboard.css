@@ -3,6 +3,18 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+@media screen and (min-width: 1280px) {
+
+}
+
+@media screen and (min-width: 960px) {
+
+}
+
+@media screen and (min-width: 640px) {
+    
+}
+
 body {
     background-color: #27374D !important;
 }
@@ -16,7 +28,6 @@ body {
     display: inline-block;
     margin-left: 25px;
     margin-right: 140px;
-    margin-bottom: 25px;
     color: #DDE6ED;
 }
 
