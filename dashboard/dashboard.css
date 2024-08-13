@@ -37,6 +37,22 @@
     #input-div input {
         width: 70%;
     }
+
+    #main-forecast-div {
+        width: 60%;
+    }
+
+    #map-div {
+        width: 35%;
+    }
+
+    #hourly-forecast-div, #weekly-forecast-div {
+        width: 47%;
+    }
+
+    #hourly-div div {
+        width: 20%;
+    }
 }
 
 
