@@ -18,6 +18,20 @@
     h1 {
         border: 1px solid green;
     }
+
+    #input-div {
+        width: 45%;
+        margin-left: 90px;
+    }
+
+    #main-forecast-div, #map-div, #hourly-forecast-div, #weekly-forecast-div {
+        width: 45%;
+    }
+
+    #hourly-div div {
+        width: 25%;
+    }
+
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -95,6 +109,7 @@ body {
 #top-section {
      margin-top: 20px;
      margin-bottom: 30px;
+     
 }
 
 #main-heading {
@@ -188,6 +203,9 @@ datalist option {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 350px;
+    overflow-x: scroll;
+    margin-top: -100px
 }
 
 /*#hourly-div div {
