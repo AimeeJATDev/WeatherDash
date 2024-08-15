@@ -5,11 +5,41 @@
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+    h1 {
+        border: 1px solid orange;
+    }
 
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
+    h1 {
+        border: 1px solid purple;
+    }
+
+    #main-heading {
+        width: 90%;
+        margin-bottom: 10px;
+    }
+
+    #main-heading h1 {
+        text-align: center;
+    }
+    
+    #input-div {
+        width: 70%;
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+
+    #main-forecast-div, #map-div {
+        width: 43%;
+    }
+
+    #hourly-forecast-div, #weekly-forecast-div {
+        width: 90%;
+        margin-bottom: 40px;
+    }
 
 } 
 
