@@ -9,6 +9,26 @@
         border: 1px solid orange;
     }
 
+    #main-heading {
+        width: 90%;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    #input-div {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    #main-forecast-div, #map-div, #hourly-forecast-div, #weekly-forecast-div {
+        width: 90%;
+    }
+
+    #main-forecast-div, #hourly-forecast-div {
+        margin-bottom: 35px;
+    }
+
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -20,9 +40,6 @@
     #main-heading {
         width: 90%;
         margin-bottom: 10px;
-    }
-
-    #main-heading h1 {
         text-align: center;
     }
     
