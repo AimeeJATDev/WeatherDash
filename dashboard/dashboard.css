@@ -68,7 +68,7 @@
 
     #input-div {
         width: 45%;
-        margin-left: 90px;
+        margin-left: 25px;
     }
 
     #main-forecast-div, #map-div, #hourly-forecast-div, #weekly-forecast-div {
@@ -85,10 +85,6 @@
 @media screen and (min-width: 992px) {
     h1 {
         border: 1px solid blue;
-    }
-
-    #main-heading {
-        margin-right: 50px;
     }
 
     #input-div {
@@ -125,11 +121,11 @@
 
     #input-div {
         width: 50%;
-        margin-left: 25px;
+
     }
 
     #input-div input {
-        width: 40%;
+        width: 60%;
     }
 
     #main-forecast-div {
@@ -154,13 +150,12 @@ body {
 }
 
 #top-section {
-     margin-top: 20px;
-     margin-bottom: 30px;
-     
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 #main-heading {
-    display: inline-block;
+    /*display: inline-block;*/
     margin-left: 25px;
     /*margin-right: 140px;*/
     color: #DDE6ED;
@@ -171,16 +166,15 @@ h2 {
 }
 
 #input-div {
-    display: inline-block;
+    /*display: inline-block;*/
     /*width: 50%;*/
     /*margin-left: 25px;*/
     margin-bottom: 20px;
 }
 
-#input-div input {
-    display: inline-block;
-    /*width: 40%;*/
-}
+/*#input-div input {
+    width: 40%;
+}*/
 
 #input-div button {
     margin-left: 10px;
