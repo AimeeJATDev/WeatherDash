@@ -155,9 +155,7 @@ body {
 }
 
 #main-heading {
-    /*display: inline-block;*/
     margin-left: 25px;
-    /*margin-right: 140px;*/
     color: #DDE6ED;
 }
 
@@ -166,15 +164,8 @@ h2 {
 }
 
 #input-div {
-    /*display: inline-block;*/
-    /*width: 50%;*/
-    /*margin-left: 25px;*/
     margin-bottom: 20px;
 }
-
-/*#input-div input {
-    width: 40%;
-}*/
 
 #input-div button {
     margin-left: 10px;
@@ -196,7 +187,6 @@ datalist option {
 
 #main-forecast-div {
     display: inline-block;
-    /*width: 55%;*/
     height: 400px;
     text-align: center;
     vertical-align: top;
@@ -215,7 +205,6 @@ datalist option {
 
 #map-div {
     display: inline-block;
-    /*width: 41%;*/
     height: 400px;
     margin-left: 20px;
     border-radius: 15px;
@@ -232,7 +221,6 @@ datalist option {
 
 #hourly-forecast-div {
     display: inline-block;
-    /*width: 48%;*/
     height: 350px;
     text-align: center;
     background-color: #526D82;
@@ -248,10 +236,6 @@ datalist option {
     overflow-x: scroll;
     margin-top: -100px
 }
-
-/*#hourly-div div {
-    width: 15%;
-}*/
 
 #hourly-div div , #weekly-div div {
     background-color: #9DB2BF;
@@ -273,7 +257,6 @@ datalist option {
 
 #weekly-forecast-div {
     display: inline-block;
-    /*width: 48%;*/
     height: 350px;
     margin-left: 20px;
     text-align: center;
