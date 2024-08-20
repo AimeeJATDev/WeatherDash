@@ -71,14 +71,13 @@
         margin-left: 25px;
     }
 
-    #main-forecast-div, #map-div, #hourly-forecast-div, #weekly-forecast-div {
+    #main-forecast-div, #map-div {
         width: 45%;
     }
 
-    #hourly-div div {
-        width: 25%;
+    #hourly-forecast-div, #weekly-forecast-div {
+        width: 93%;
     }
-
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -105,10 +104,6 @@
 
     #hourly-forecast-div, #weekly-forecast-div {
         width: 47%;
-    }
-
-    #hourly-div div {
-        width: 20%;
     }
 }
 
@@ -138,10 +133,6 @@
 
     #hourly-forecast-div, #weekly-forecast-div {
         width: 48%;
-    }
-
-    #hourly-div div {
-        width: 15%;
     }
 }
 
@@ -216,7 +207,7 @@ datalist option {
 
 #bottom-section h2 {
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 #hourly-forecast-div {
@@ -232,7 +223,7 @@ datalist option {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 350px;
+    height: 95%;
     overflow-x: scroll;
     margin-top: -100px
 }
@@ -247,6 +238,10 @@ datalist option {
     box-shadow: 2px 2px #27374D;
 }
 
+#hourly-div div {
+    width:30%;
+}
+
 #hourly-div img, #weekly-div img {
     margin-bottom: 10px;
 }
@@ -257,7 +252,7 @@ datalist option {
 
 #weekly-forecast-div {
     display: inline-block;
-    height: 350px;
+    height: 355px;
     margin-left: 20px;
     text-align: center;
     background-color: #526D82;
