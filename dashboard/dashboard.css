@@ -5,9 +5,9 @@
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-    h1 {
+    /*h1 {
         border: 1px solid orange;
-    }
+    }*/
 
     #main-heading {
         width: 90%;
@@ -16,9 +16,9 @@
     }
 
     #input-div {
-        width: 90%;
-        margin-left: 5%;
-        margin-right: 5%;
+        width: 80%;
+        margin-left: 8%;
+        margin-right: 8%;
     }
 
     #main-forecast-div, #map-div, #hourly-forecast-div, #weekly-forecast-div {
@@ -33,9 +33,9 @@
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-    h1 {
+    /*h1 {
         border: 1px solid purple;
-    }
+    }*/
 
     #main-heading {
         width: 90%;
@@ -62,13 +62,14 @@
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media screen and (min-width: 768px) {
-    h1 {
+    /*h1 {
         border: 1px solid green;
-    }
+    }*/
 
     #input-div {
-        width: 45%;
-        margin-left: 25px;
+        width: 60%;
+        margin-left: 20%;
+        margin-right: 20%;
     }
 
     #main-forecast-div, #map-div {
@@ -82,12 +83,13 @@
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media screen and (min-width: 992px) {
-    h1 {
+    /*h1 {
         border: 1px solid blue;
-    }
+    }*/
 
     #input-div {
         width: 50%;
+        margin-left: 25px;
     }
 
     #input-div input {
@@ -110,9 +112,9 @@
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media screen and (min-width: 1200px) {
-    h1 {
+    /*h1 {
         border: 1px solid red;
-    }
+    }*/
 
     #input-div {
         width: 50%;
@@ -155,6 +157,7 @@ h2 {
 }
 
 #input-div {
+    margin-top: 20px;
     margin-bottom: 20px;
 }
 
@@ -167,14 +170,14 @@ h2 {
     align-items: center;
 }
 
-datalist {
+/*datalist {
     border: 2px solid black;
     border-radius: 0 0 10px 10px;
 }
 
 datalist option {
     background-color: red;
-}
+}*/
 
 #main-forecast-div {
     display: inline-block;
@@ -223,8 +226,8 @@ datalist option {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 95%;
-    overflow-x: scroll;
+    height: 100%;
+    overflow-x: auto;
     margin-top: -100px
 }
 
@@ -239,7 +242,7 @@ datalist option {
 }
 
 #hourly-div div {
-    width:30%;
+    width: 30%;
 }
 
 #hourly-div img, #weekly-div img {
@@ -252,7 +255,7 @@ datalist option {
 
 #weekly-forecast-div {
     display: inline-block;
-    height: 355px;
+    height: 350px;
     margin-left: 20px;
     text-align: center;
     background-color: #526D82;
