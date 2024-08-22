@@ -10,7 +10,6 @@
     }*/
 
     #main-heading {
-        width: 90%;
         margin-bottom: 10px;
         text-align: center;
     }
@@ -23,10 +22,13 @@
 
     #main-forecast-div, #map-div, #hourly-forecast-div, #weekly-forecast-div {
         width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
     }
 
     #main-forecast-div, #hourly-forecast-div {
         margin-bottom: 35px;
+        margin-left: 5%;
     }
 
 }
@@ -38,7 +40,7 @@
     }*/
 
     #main-heading {
-        width: 90%;
+        width: 100%;
         margin-bottom: 10px;
         text-align: center;
     }
@@ -51,20 +53,26 @@
 
     #main-forecast-div, #map-div {
         width: 43%;
+        margin-left: 4%;
+    }
+
+    #map-div, #hourly-forecast-div, #weekly-forecast-div {
+        margin-right: 4%;
     }
 
     #hourly-forecast-div, #weekly-forecast-div {
         width: 90%;
         margin-bottom: 40px;
+        margin-left: 4%;
     }
 
 } 
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media screen and (min-width: 768px) {
-    /*h1 {
+    h1 {
         border: 1px solid green;
-    }*/
+    }
 
     #input-div {
         width: 60%;
@@ -74,22 +82,28 @@
 
     #main-forecast-div, #map-div {
         width: 45%;
+        margin-left: 3%;
+    }
+
+    #map-div, #hourly-forecast-div, #weekly-forecast-div {
+        margin-right: 3%;
     }
 
     #hourly-forecast-div, #weekly-forecast-div {
         width: 93%;
+        margin-left: 3%;
     }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media screen and (min-width: 992px) {
-    /*h1 {
+    h1 {
         border: 1px solid blue;
-    }*/
+    }
 
     #input-div {
         width: 50%;
-        margin-left: 25px;
+        margin-left: 2%;
     }
 
     #input-div input {
@@ -97,44 +111,58 @@
     }
 
     #main-forecast-div {
-        width: 60%;
+        width: 54%;
+        margin-left: 2%;
     }
 
     #map-div {
-        width: 35%;
+        width: 39%;
+        margin-left: 2%;
+    }
+
+    #map-div, #weekly-forecast-div {
+        margin-right: 2%;
     }
 
     #hourly-forecast-div, #weekly-forecast-div {
-        width: 47%;
+        width: 45%;
+        margin-left: 2%;
     }
 }
 
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media screen and (min-width: 1200px) {
-    /*h1 {
+    h1 {
         border: 1px solid red;
-    }*/
+    }
 
     #input-div {
         width: 50%;
-
+        margin-left: 2%;
     }
 
     #input-div input {
-        width: 60%;
+        width: 58%;
     }
 
     #main-forecast-div {
-        width: 55%;
+        width: 54%;
+        margin-left: 2%;
     }
 
     #map-div {
-        width: 41%;
+        width: 40%;
+        margin-left: 2%;
+    }
+
+    #map-div, #weekly-forecast-div {
+        margin-right: 2%;
     }
 
     #hourly-forecast-div, #weekly-forecast-div {
-        width: 48%;
+        width: 47%;
+        margin-left: 2%;
     }
 }
 
@@ -148,7 +176,7 @@ body {
 }
 
 #main-heading {
-    margin-left: 25px;
+    /*margin-left: 25px;*/
     color: #DDE6ED;
 }
 
@@ -186,7 +214,7 @@ datalist option {
     vertical-align: top;
     background-color: #526D82;
     border-radius: 15px;
-    margin-left: 20px;
+    /*margin-left: 20px;*/
 }
 
 #main-forecast-div #forecast-location {
@@ -200,7 +228,7 @@ datalist option {
 #map-div {
     display: inline-block;
     height: 400px;
-    margin-left: 20px;
+    /*margin-left: 20px;*/
     border-radius: 15px;
 }
 
@@ -218,7 +246,7 @@ datalist option {
     height: 350px;
     text-align: center;
     background-color: #526D82;
-    margin-left: 20px;
+    /*margin-left: 20px;*/
     border-radius: 15px;
 }
 
@@ -256,7 +284,7 @@ datalist option {
 #weekly-forecast-div {
     display: inline-block;
     height: 350px;
-    margin-left: 20px;
+    /*margin-left: 20px;*/
     text-align: center;
     background-color: #526D82;
     border-radius: 15px;
