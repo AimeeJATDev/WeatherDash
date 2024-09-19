@@ -1,2 +1,2 @@
 # WeatherDash
-Weather Dashboard Extension
+Weather Dashboard
